@@ -53,6 +53,9 @@
     <!-- GLightbox for Portfolio Gallery -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     
+    <!-- Vanilla Tilt for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     
@@ -117,6 +120,13 @@
     </script>
 </head>
 <body class="font-cairo bg-gray-50 overflow-x-hidden">
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+    
+    <!-- Mouse Trail Effect -->
+    <canvas id="canvas-trail"></canvas>
     
     <!-- Loading Screen -->
     <div id="loader" class="fixed inset-0 bg-gradient-to-br from-primary to-secondary z-50 flex items-center justify-center">
@@ -196,11 +206,11 @@
                     أصمم وأطور مواقع ويب احترافية وتطبيقات تفاعلية
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="#portfolio" class="btn-primary bg-white text-primary hover:bg-gray-100">
+                    <a href="#portfolio" class="btn-primary magnetic-btn bg-white text-primary hover:bg-gray-100">
                         <i class="fas fa-briefcase ml-2"></i>
                         شاهد أعمالي
                     </a>
-                    <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-primary">
+                    <a href="#contact" class="btn-secondary magnetic-btn border-2 border-white text-white hover:bg-white hover:text-primary">
                         <i class="fas fa-envelope ml-2"></i>
                         تواصل معي
                     </a>
@@ -234,7 +244,7 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="section-title">عني</h2>
+                <h2 class="section-title reveal-text">عني</h2>
                 <div class="section-divider"></div>
             </div>
             
@@ -280,14 +290,14 @@
     <section id="skills" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="section-title">مهاراتي</h2>
+                <h2 class="section-title reveal-text">مهاراتي</h2>
                 <div class="section-divider"></div>
                 <p class="text-gray-600 mt-4">التقنيات والأدوات التي أتقنها</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Frontend Skills -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-category tilt-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3">
                     <div class="text-center mb-6">
                         <i class="fas fa-laptop-code text-5xl text-primary mb-3"></i>
                         <h3 class="text-2xl font-bold">Frontend</h3>
@@ -333,7 +343,7 @@
                 </div>
                 
                 <!-- Backend Skills -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-category tilt-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3">
                     <div class="text-center mb-6">
                         <i class="fas fa-server text-5xl text-secondary mb-3"></i>
                         <h3 class="text-2xl font-bold">Backend</h3>
@@ -379,7 +389,7 @@
                 </div>
                 
                 <!-- Other Skills -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-category tilt-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3">
                     <div class="text-center mb-6">
                         <i class="fas fa-tools text-5xl text-accent mb-3"></i>
                         <h3 class="text-2xl font-bold">أدوات أخرى</h3>
@@ -448,7 +458,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
                 <div class="portfolio-item" data-category="web" data-aos="zoom-in">
-                    <div class="portfolio-card">
+                    <div class="portfolio-card tilt-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" 
                              alt="Project 1" 
                              class="w-full h-64 object-cover">
@@ -472,7 +482,7 @@
                 
                 <!-- Project 2 -->
                 <div class="portfolio-item" data-category="app" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="portfolio-card">
+                    <div class="portfolio-card tilt-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
                         <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop" 
                              alt="Project 2" 
                              class="w-full h-64 object-cover">
@@ -496,7 +506,7 @@
                 
                 <!-- Project 3 -->
                 <div class="portfolio-item" data-category="design" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="portfolio-card">
+                    <div class="portfolio-card tilt-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
                         <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" 
                              alt="Project 3" 
                              class="w-full h-64 object-cover">
@@ -520,7 +530,7 @@
                 
                 <!-- Project 4 -->
                 <div class="portfolio-item" data-category="web" data-aos="zoom-in">
-                    <div class="portfolio-card">
+                    <div class="portfolio-card tilt-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
                         <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop" 
                              alt="Project 4" 
                              class="w-full h-64 object-cover">
@@ -544,7 +554,7 @@
                 
                 <!-- Project 5 -->
                 <div class="portfolio-item" data-category="app" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="portfolio-card">
+                    <div class="portfolio-card tilt-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
                         <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" 
                              alt="Project 5" 
                              class="w-full h-64 object-cover">
@@ -568,7 +578,7 @@
                 
                 <!-- Project 6 -->
                 <div class="portfolio-item" data-category="design" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="portfolio-card">
+                    <div class="portfolio-card tilt-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
                         <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop" 
                              alt="Project 6" 
                              class="w-full h-64 object-cover">
@@ -653,7 +663,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="service-card" data-aos="fade-up">
+                <div class="service-card tilt-card" data-aos="fade-up" data-tilt data-tilt-max="8" data-tilt-speed="400">
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
@@ -669,7 +679,7 @@
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="8" data-tilt-speed="400">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -685,7 +695,7 @@
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="8" data-tilt-speed="400">
                     <div class="service-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
@@ -701,7 +711,7 @@
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="service-card" data-aos="fade-up">
+                <div class="service-card tilt-card" data-aos="fade-up" data-tilt data-tilt-max="8" data-tilt-speed="400">
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
@@ -717,7 +727,7 @@
                 </div>
                 
                 <!-- Service 5 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="8" data-tilt-speed="400">
                     <div class="service-icon">
                         <i class="fas fa-search"></i>
                     </div>
@@ -733,7 +743,7 @@
                 </div>
                 
                 <!-- Service 6 -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="8" data-tilt-speed="400">
                     <div class="service-icon">
                         <i class="fas fa-cog"></i>
                     </div>

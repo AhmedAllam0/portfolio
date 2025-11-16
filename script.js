@@ -826,17 +826,260 @@ if ('scrollBehavior' in document.documentElement.style) {
     document.documentElement.style.scrollBehavior = 'smooth';
 }
 
+// ========================================
+// 🎨 ADVANCED INTERACTIVE EFFECTS
+// ========================================
+
+// ========== Custom Cursor Effect ========== 
+const cursor = document.querySelector('.custom-cursor');
+const cursorDot = document.querySelector('.custom-cursor-dot');
+
+if (cursor && cursorDot && window.innerWidth > 768) {
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let dotX = 0, dotY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // Smooth cursor following with lag effect
+    function animateCursor() {
+        const cursorSpeed = 0.15;
+        cursorX += (mouseX - cursorX) * cursorSpeed;
+        cursorY += (mouseY - cursorY) * cursorSpeed;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        
+        const dotSpeed = 0.25;
+        dotX += (mouseX - dotX) * dotSpeed;
+        dotY += (mouseY - dotY) * dotSpeed;
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top = dotY + 'px';
+        
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    
+    // Cursor hover effects
+    const hoverElements = document.querySelectorAll('a, button, .btn, .portfolio-card, .service-card, .skill-category');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-hover');
+            cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-hover');
+            cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    });
+}
+
+// ========== Mouse Trail Effect (Canvas) ========== 
+const canvas = document.getElementById('canvas-trail');
+if (canvas && window.innerWidth > 768) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particlesArray = [];
+    const maxParticles = 100;
+    
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 5 + 1;
+            this.speedX = Math.random() * 3 - 1.5;
+            this.speedY = Math.random() * 3 - 1.5;
+            this.color = `hsl(${Math.random() * 60 + 240}, 70%, 60%)`;
+            this.life = 0;
+            this.maxLife = 60;
+        }
+        
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.size *= 0.97;
+            this.life++;
+        }
+        
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.globalAlpha = 1 - (this.life / this.maxLife);
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    
+    document.addEventListener('mousemove', (e) => {
+        if (particlesArray.length < maxParticles) {
+            particlesArray.push(new Particle(e.clientX, e.clientY));
+        }
+    });
+    
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.globalAlpha = 1;
+        
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+            
+            if (particlesArray[i].life >= particlesArray[i].maxLife || particlesArray[i].size < 0.3) {
+                particlesArray.splice(i, 1);
+                i--;
+            }
+        }
+        
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+    
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+}
+
+// ========== Magnetic Button Effect ========== 
+const magneticButtons = document.querySelectorAll('.magnetic-btn');
+
+magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        const distance = Math.sqrt(x * x + y * y);
+        const maxDistance = 100;
+        
+        if (distance < maxDistance) {
+            const strength = (maxDistance - distance) / maxDistance;
+            const moveX = x * strength * 0.3;
+            const moveY = y * strength * 0.3;
+            
+            this.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+        this.style.transform = 'translate(0, 0)';
+    });
+});
+
+// ========== Initialize Vanilla Tilt for 3D Effects ========== 
+if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+        scale: 1.05,
+        perspective: 1000,
+        transition: true,
+        easing: "cubic-bezier(.03,.98,.52,.99)"
+    });
+}
+
+// ========== Ripple Effect on Click ========== 
+document.querySelectorAll('.btn, .portfolio-card, .service-card').forEach(element => {
+    element.classList.add('ripple-effect');
+    
+    element.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.animation = 'ripple 0.6s ease-out';
+        
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// ========== Parallax Effect for Achievement Cards ========== 
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        const moveX = (e.clientX - window.innerWidth / 2) / 50;
+        const moveY = (e.clientY - window.innerHeight / 2) / 50;
+        
+        document.querySelectorAll('.achievement-card').forEach((card, index) => {
+            const speed = (index + 1) * 0.5;
+            card.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+        });
+    });
+}
+
+// ========== Scroll Reveal Animation Enhancement ========== 
+const scrollRevealElements = document.querySelectorAll('.portfolio-card, .service-card, .skill-category');
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+            }, index * 100);
+        }
+    });
+}, { threshold: 0.1 });
+
+scrollRevealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(50px) scale(0.9)';
+    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    scrollObserver.observe(el);
+});
+
+// ========== Text Reveal Animation ========== 
+const revealTextElements = document.querySelectorAll('.reveal-text');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 1s ease-out';
+        }
+    });
+}, { threshold: 0.5 });
+
+revealTextElements.forEach(el => revealObserver.observe(el));
+
 // ========== Initialize Everything ========== 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('%c🚀 Portfolio Website Enhanced!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-    console.log('%c✨ Features:', 'color: #8b5cf6; font-size: 16px; font-weight: bold;');
+    console.log('%c🚀 Portfolio Website ULTRA Enhanced!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
+    console.log('%c✨ Advanced Features:', 'color: #8b5cf6; font-size: 16px; font-weight: bold;');
     console.log('%c  ✓ Dark Mode Toggle', 'color: #8b5cf6; font-size: 14px;');
     console.log('%c  ✓ Particles.js Background', 'color: #8b5cf6; font-size: 14px;');
     console.log('%c  ✓ Typed.js Animations', 'color: #8b5cf6; font-size: 14px;');
     console.log('%c  ✓ GLightbox Gallery', 'color: #8b5cf6; font-size: 14px;');
     console.log('%c  ✓ Reading Progress Bar', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ Enhanced Animations', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Custom Cursor Effect', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Mouse Trail Canvas', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Magnetic Buttons', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ 3D Tilt Cards (18+)', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Ripple Click Effect', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Parallax Movement', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Text Reveal Animations', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Scroll Reveal Effects', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ SEO Optimized', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%cDeveloped with ❤️', 'color: #ec4899; font-size: 16px;');
+    console.log('%cDeveloped with ❤️ & Magic ✨', 'color: #ec4899; font-size: 16px;');
     console.log('%cTip: Try the Konami Code! ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️BA', 'color: #fbbf24; font-size: 12px;');
+    
+    // Add loaded class for CSS transitions
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
 });
