@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initTyped();
     initGLightbox();
     initDarkMode();
+    initFAQ();
+    initContactForm();
 });
 
 // ========== Loading Screen ========== 
@@ -1235,26 +1237,177 @@ function initSoundscape() {
 
 
 
+// ========== Dark Mode Toggle ========== 
+function initDarkMode() {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+    const darkModeText = document.getElementById('dark-mode-text');
+    
+    // Check for saved dark mode preference or default to light mode
+    const currentMode = localStorage.getItem('darkMode') || 'light';
+    
+    if (currentMode === 'dark') {
+        document.documentElement.classList.add('dark');
+        updateDarkModeUI(true);
+    }
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark ? 'dark' : 'light');
+            updateDarkModeUI(isDark);
+            
+            // Add transition effect
+            darkModeToggle.classList.add('scale-110');
+            setTimeout(() => darkModeToggle.classList.remove('scale-110'), 200);
+        });
+    }
+    
+    function updateDarkModeUI(isDark) {
+        if (darkModeIcon && darkModeText) {
+            if (isDark) {
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+                darkModeText.textContent = 'الوضع النهاري';
+                darkModeToggle.classList.add('bg-gray-700', 'text-white');
+                darkModeToggle.classList.remove('bg-gray-100');
+                darkModeIcon.classList.remove('text-gray-700');
+                darkModeIcon.classList.add('text-yellow-400');
+                darkModeText.classList.remove('text-gray-700');
+                darkModeText.classList.add('text-white');
+            } else {
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+                darkModeText.textContent = 'الوضع الليلي';
+                darkModeToggle.classList.remove('bg-gray-700', 'text-white');
+                darkModeToggle.classList.add('bg-gray-100');
+                darkModeIcon.classList.remove('text-yellow-400');
+                darkModeIcon.classList.add('text-gray-700');
+                darkModeText.classList.remove('text-white');
+                darkModeText.classList.add('text-gray-700');
+            }
+        }
+    }
+}
+
+// ========== FAQ Accordion ========== 
+function initFAQ() {
+    // Make toggleFAQ globally accessible
+    window.toggleFAQ = function(button) {
+        const faqItem = button.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = button.querySelector('.fa-chevron-down');
+        
+        // Close all other FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem) {
+                item.querySelector('.faq-answer').classList.add('hidden');
+                item.querySelector('.fa-chevron-down').style.transform = 'rotate(0deg)';
+            }
+        });
+        
+        // Toggle current FAQ
+        answer.classList.toggle('hidden');
+        
+        if (answer.classList.contains('hidden')) {
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            icon.style.transform = 'rotate(180deg)';
+        }
+    };
+}
+
+// ========== Enhanced Contact Form ========== 
+function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin ml-2"></i>جاري الإرسال...';
+        submitBtn.disabled = true;
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone') || '',
+            service: formData.get('service'),
+            budget: formData.get('budget') || '',
+            message: formData.get('message')
+        };
+        
+        // Simulate sending (replace with actual API call)
+        setTimeout(() => {
+            showFormMessage('تم إرسال رسالتك بنجاح! سنتواصل معك في أقرب وقت ممكن. ✨', 'success');
+            contactForm.reset();
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            
+            // In production, use EmailJS or your backend:
+            /*
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', data)
+                .then(() => {
+                    showFormMessage('تم إرسال رسالتك بنجاح! ✨', 'success');
+                    contactForm.reset();
+                })
+                .catch(() => {
+                    showFormMessage('حدث خطأ، يرجى المحاولة مرة أخرى.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            */
+        }, 1500);
+    });
+    
+    function showFormMessage(message, type) {
+        if (!formMessage) return;
+        
+        formMessage.textContent = message;
+        formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
+        
+        if (type === 'success') {
+            formMessage.classList.add('bg-green-100', 'text-green-700');
+        } else {
+            formMessage.classList.add('bg-red-100', 'text-red-700');
+        }
+        
+        setTimeout(() => {
+            formMessage.classList.add('hidden');
+        }, 5000);
+    }
+}
+
 // ========== Initialize Everything ========== 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🚀 Portfolio Website ULTRA Enhanced!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
     console.log('%c✨ Advanced Features:', 'color: #8b5cf6; font-size: 16px; font-weight: bold;');
-    console.log('%c  ✓ Dark Mode Toggle', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ Particles.js Background', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ Typed.js Animations', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ GLightbox Gallery', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ Reading Progress Bar', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ Custom Cursor Effect', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Mouse Trail Canvas', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Magnetic Buttons', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ 3D Tilt Cards (18+)', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Ripple Click Effect', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Parallax Movement', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Text Reveal Animations', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Scroll Reveal Effects', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Dark/Light Mode Toggle', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Blog Section', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Pricing Packages', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ FAQ Accordion', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Advanced Contact Form', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Documentation Page', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Custom 404 Page', 'color: #8b5cf6; font-size: 14px;');
+    console.log('%c  ✓ Particles.js Background', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Typed.js Animations', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ GLightbox Gallery', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Reading Progress Bar', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Theme Lab (5 Palettes)', 'color: #10b981; font-size: 14px;');
+    console.log('%c  ✓ Audio Soundscape', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ SEO Optimized', 'color: #8b5cf6; font-size: 14px;');
     console.log('%cDeveloped with ❤️ & Magic ✨', 'color: #ec4899; font-size: 16px;');
-    console.log('%cTip: Try the Konami Code! ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️BA', 'color: #fbbf24; font-size: 12px;');
     
     initThemeLab();
     initSoundscape();

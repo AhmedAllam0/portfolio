@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - إدارة المحتوى</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+        * { font-family: 'Cairo', sans-serif; }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .form-section {
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-cog text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                        لوحة التحكم
+                    </h1>
+                    <p class="text-sm text-gray-500">إدارة محتوى البورتفوليو</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-right">
+                    <div class="text-sm font-bold text-gray-800">المدير</div>
+                    <div class="text-xs text-gray-500">admin@portfolio.com</div>
+                </div>
+                <a href="index.html" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-lg transition">
+                    <i class="fas fa-eye ml-2"></i>معاينة الموقع
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Stats Overview -->
+        <div class="grid md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white">
+                <i class="fas fa-folder text-4xl mb-3 opacity-75"></i>
+                <div class="text-3xl font-black mb-1" id="stats-projects">12</div>
+                <div class="text-blue-100">المشاريع</div>
+            </div>
+            <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white">
+                <i class="fas fa-users text-4xl mb-3 opacity-75"></i>
+                <div class="text-3xl font-black mb-1" id="stats-testimonials">8</div>
+                <div class="text-green-100">آراء العملاء</div>
+            </div>
+            <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white">
+                <i class="fas fa-cog text-4xl mb-3 opacity-75"></i>
+                <div class="text-3xl font-black mb-1" id="stats-services">6</div>
+                <div class="text-purple-100">الخدمات</div>
+            </div>
+            <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 text-white">
+                <i class="fas fa-blog text-4xl mb-3 opacity-75"></i>
+                <div class="text-3xl font-black mb-1" id="stats-blogs">15</div>
+                <div class="text-orange-100">المقالات</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <div class="flex flex-wrap gap-3 mb-6">
+                <button class="tab-button active px-6 py-3 rounded-xl font-bold transition" onclick="showTab('about')">
+                    <i class="fas fa-user ml-2"></i>عني
+                </button>
+                <button class="tab-button px-6 py-3 rounded-xl font-bold transition bg-gray-100" onclick="showTab('portfolio')">
+                    <i class="fas fa-briefcase ml-2"></i>المشاريع
+                </button>
+                <button class="tab-button px-6 py-3 rounded-xl font-bold transition bg-gray-100" onclick="showTab('testimonials')">
+                    <i class="fas fa-star ml-2"></i>آراء العملاء
+                </button>
+                <button class="tab-button px-6 py-3 rounded-xl font-bold transition bg-gray-100" onclick="showTab('services')">
+                    <i class="fas fa-cog ml-2"></i>الخدمات
+                </button>
+                <button class="tab-button px-6 py-3 rounded-xl font-bold transition bg-gray-100" onclick="showTab('blog')">
+                    <i class="fas fa-blog ml-2"></i>المدونة
+                </button>
+            </div>
+
+            <!-- About Section -->
+            <div id="section-about" class="form-section active">
+                <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                    <i class="fas fa-user text-purple-600"></i>
+                    تحديث قسم "عني"
+                </h2>
+                <form id="about-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">الاسم الكامل</label>
+                        <input type="text" id="about-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none" placeholder="أحمد محمد">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">المسمى الوظيفي</label>
+                        <input type="text" id="about-title" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none" placeholder="مطور ويب محترف">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">نبذة عني</label>
+                        <textarea id="about-bio" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none" placeholder="اكتب نبذة عنك..."></textarea>
+                    </div>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">عدد المشاريع</label>
+                            <input type="number" id="about-projects" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="150">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">العملاء</label>
+                            <input type="number" id="about-clients" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">سنوات الخبرة</label>
+                            <input type="number" id="about-years" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="7">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">التقييم</label>
+                            <input type="text" id="about-rating" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="4.9/5">
+                        </div>
+                    </div>
+                    <button type="submit" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+                        <i class="fas fa-save ml-2"></i>حفظ التغييرات
+                    </button>
+                </form>
+            </div>
+
+            <!-- Portfolio Section -->
+            <div id="section-portfolio" class="form-section">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-black flex items-center gap-3">
+                        <i class="fas fa-briefcase text-purple-600"></i>
+                        إدارة المشاريع
+                    </h2>
+                    <button onclick="showAddProject()" class="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+                        <i class="fas fa-plus ml-2"></i>إضافة مشروع
+                    </button>
+                </div>
+                
+                <div id="projects-list" class="space-y-4">
+                    <!-- Projects will be loaded here -->
+                </div>
+
+                <!-- Add Project Form (Hidden by default) -->
+                <div id="add-project-form" class="hidden mt-6 p-6 bg-gray-50 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">إضافة مشروع جديد</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">اسم المشروع</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="موقع تجارة إلكترونية">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">الوصف</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="وصف المشروع..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">رابط الصورة</label>
+                            <input type="url" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">التقنيات المستخدمة (افصل بفاصلة)</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="React, Node.js, MongoDB">
+                        </div>
+                        <div class="flex gap-3">
+                            <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+                                <i class="fas fa-plus ml-2"></i>إضافة
+                            </button>
+                            <button type="button" onclick="hideAddProject()" class="px-6 py-3 bg-gray-300 text-gray-700 rounded-xl font-bold hover:bg-gray-400 transition">
+                                إلغاء
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div id="section-testimonials" class="form-section">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-black flex items-center gap-3">
+                        <i class="fas fa-star text-purple-600"></i>
+                        إدارة آراء العملاء
+                    </h2>
+                    <button class="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+                        <i class="fas fa-plus ml-2"></i>إضافة رأي جديد
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-between">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold">أحمد السعيد</h3>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">موثق</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">شركة TechCorp - السعودية</p>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="w-10 h-10 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div id="section-services" class="form-section">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-black flex items-center gap-3">
+                        <i class="fas fa-cog text-purple-600"></i>
+                        إدارة الخدمات
+                    </h2>
+                    <button class="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+                        <i class="fas fa-plus ml-2"></i>إضافة خدمة
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg text-sm">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="w-8 h-8 bg-red-100 text-red-600 rounded-lg text-sm">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">تطوير مواقع ويب</h3>
+                        <p class="text-gray-600 text-sm">تصميم وتطوير مواقع ويب احترافية متجاوبة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Section -->
+            <div id="section-blog" class="form-section">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-black flex items-center gap-3">
+                        <i class="fas fa-blog text-purple-600"></i>
+                        إدارة المدونة
+                    </h2>
+                    <button class="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold hover:shadow-lg transition">
+                        <i class="fas fa-plus ml-2"></i>مقال جديد
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 flex items-center gap-6">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=120&h=120&fit=crop" 
+                             alt="Blog" 
+                             class="w-24 h-24 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold mb-2">أفضل 10 ممارسات لتطوير React في 2024</h3>
+                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-2">
+                                <span><i class="far fa-calendar ml-1"></i>15 نوفمبر 2024</span>
+                                <span><i class="far fa-eye ml-1"></i>1.2K مشاهدة</span>
+                            </div>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">تطوير ويب</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="w-10 h-10 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export/Import -->
+        <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-black mb-2">تصدير / استيراد البيانات</h2>
+                    <p class="text-purple-100">احفظ نسخة احتياطية من جميع البيانات أو استرجعها</p>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="exportData()" class="px-6 py-3 bg-white text-purple-600 rounded-xl font-bold hover:shadow-lg transition">
+                        <i class="fas fa-download ml-2"></i>تصدير JSON
+                    </button>
+                    <button onclick="document.getElementById('import-file').click()" class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-xl font-bold hover:bg-white/30 transition">
+                        <i class="fas fa-upload ml-2"></i>استيراد
+                    </button>
+                    <input type="file" id="import-file" accept=".json" class="hidden" onchange="importData(event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('bg-gray-100');
+            });
+            
+            // Show selected section
+            document.getElementById('section-' + tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            event.target.classList.remove('bg-gray-100');
+        }
+
+        // Show/Hide Add Project Form
+        function showAddProject() {
+            document.getElementById('add-project-form').classList.remove('hidden');
+        }
+
+        function hideAddProject() {
+            document.getElementById('add-project-form').classList.add('hidden');
+        }
+
+        // Load data from localStorage
+        function loadData() {
+            const data = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+            
+            if (data.about) {
+                document.getElementById('about-name').value = data.about.name || '';
+                document.getElementById('about-title').value = data.about.title || '';
+                document.getElementById('about-bio').value = data.about.bio || '';
+                document.getElementById('about-projects').value = data.about.projects || '';
+                document.getElementById('about-clients').value = data.about.clients || '';
+                document.getElementById('about-years').value = data.about.years || '';
+                document.getElementById('about-rating').value = data.about.rating || '';
+            }
+        }
+
+        // Save About form
+        document.getElementById('about-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const data = JSON.parse(localStorage.getItem('portfolioData') || '{}');
+            data.about = {
+                name: document.getElementById('about-name').value,
+                title: document.getElementById('about-title').value,
+                bio: document.getElementById('about-bio').value,
+                projects: document.getElementById('about-projects').value,
+                clients: document.getElementById('about-clients').value,
+                years: document.getElementById('about-years').value,
+                rating: document.getElementById('about-rating').value
+            };
+            
+            localStorage.setItem('portfolioData', JSON.stringify(data));
+            
+            // Show success message
+            alert('✅ تم حفظ التغييرات بنجاح!');
+        });
+
+        // Export data
+        function exportData() {
+            const data = localStorage.getItem('portfolioData') || '{}';
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'portfolio-data-' + new Date().toISOString().split('T')[0] + '.json';
+            a.click();
+        }
+
+        // Import data
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    localStorage.setItem('portfolioData', JSON.stringify(data));
+                    alert('✅ تم استيراد البيانات بنجاح!');
+                    loadData();
+                } catch (error) {
+                    alert('❌ خطأ في قراءة الملف!');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

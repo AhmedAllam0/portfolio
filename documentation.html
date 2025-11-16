@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل الاستخدام والتخصيص - Portfolio Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+        * { font-family: 'Cairo', sans-serif; }
+        
+        .sidebar-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        code:not([class]) {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #dc2626;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-2xl font-black bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                    Portfolio Template
+                </a>
+                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">v1.0</span>
+            </div>
+            <a href="index.html" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-lg transition">
+                <i class="fas fa-home ml-2"></i>العودة للموقع
+            </a>
+        </div>
+    </header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white h-screen sticky top-16 overflow-y-auto shadow-lg">
+            <nav class="p-4 space-y-2">
+                <a href="#intro" class="sidebar-link active block px-4 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                    <i class="fas fa-rocket ml-2"></i>البداية السريعة
+                </a>
+                <a href="#structure" class="sidebar-link block px-4 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                    <i class="fas fa-folder-tree ml-2"></i>هيكل المشروع
+                </a>
+                <a href="#customization" class="sidebar-link block px-4 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                    <i class="fas fa-palette ml-2"></i>التخصيص
+                </a>
+                <a href="#sections" class="sidebar-link block px-4 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                    <i class="fas fa-layer-group ml-2"></i>الأقسام
+                </a>
+                <a href="#deployment" class="sidebar-link block px-4 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                    <i class="fas fa-cloud-upload-alt ml-2"></i>النشر
+                </a>
+                <a href="#faq" class="sidebar-link block px-4 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+                    <i class="fas fa-question-circle ml-2"></i>الأسئلة الشائعة
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 max-w-5xl">
+            <!-- Introduction -->
+            <section id="intro" class="mb-16">
+                <h1 class="text-5xl font-black mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                    دليل الاستخدام الشامل
+                </h1>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    مرحباً بك في دليل استخدام Portfolio Template! هذا القالب الاحترافي مصمم خصيصاً لمساعدتك على إنشاء موقع بورتفوليو احترافي في دقائق معدودة. سواء كنت مطور ويب، مصمم، أو صاحب عمل حر، هذا القالب يوفر لك كل ما تحتاجه.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white">
+                        <i class="fas fa-code text-4xl mb-3"></i>
+                        <h3 class="text-2xl font-bold mb-2">كود نظيف</h3>
+                        <p class="text-blue-100">كود مرتب وموثق بشكل احترافي</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white">
+                        <i class="fas fa-mobile-alt text-4xl mb-3"></i>
+                        <h3 class="text-2xl font-bold mb-2">متجاوب 100%</h3>
+                        <p class="text-purple-100">يعمل على جميع الأجهزة والمتصفحات</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white">
+                        <i class="fas fa-tachometer-alt text-4xl mb-3"></i>
+                        <h3 class="text-2xl font-bold mb-2">سريع جداً</h3>
+                        <p class="text-green-100">محسّن للأداء وسرعة التحميل</p>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 border-r-4 border-yellow-400 p-6 rounded-lg">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-lightbulb text-yellow-600 text-2xl mt-1"></i>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-900 mb-2">نصيحة مهمة</h4>
+                            <p class="text-yellow-800">قبل البدء بالتخصيص، ننصحك بإنشاء نسخة احتياطية من الملفات الأصلية لضمان إمكانية العودة لها في أي وقت.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Structure -->
+            <section id="structure" class="mb-16">
+                <h2 class="text-4xl font-black mb-6 flex items-center gap-3">
+                    <i class="fas fa-folder-tree text-purple-600"></i>
+                    هيكل المشروع
+                </h2>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg mb-6">
+                    <pre class="text-sm"><code>portfolio/
+├── index.html          # الصفحة الرئيسية (الملف الأساسي)
+├── style.css           # ملف التنسيقات
+├── script.js           # ملف JavaScript الرئيسي
+├── 404.html            # صفحة الخطأ 404
+├── documentation.html  # صفحة التوثيق (هذه الصفحة)
+├── admin.html          # لوحة التحكم الإدارية
+├── README.md           # معلومات المشروع
+└── assets/             # مجلد الصور والملفات
+    ├── images/         # الصور
+    └── fonts/          # الخطوط (اختياري)</code></pre>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">شرح الملفات الرئيسية</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border-r-4 border-blue-500">
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-file-code text-blue-500"></i>
+                            index.html
+                        </h4>
+                        <p class="text-gray-600">الملف الأساسي الذي يحتوي على جميع أقسام الموقع: Hero, About, Skills, Portfolio, Blog, Services, Pricing, FAQ, Testimonials, Contact.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm border-r-4 border-purple-500">
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-paint-brush text-purple-500"></i>
+                            style.css
+                        </h4>
+                        <p class="text-gray-600">يحتوي على جميع التنسيقات والألوان والحركات. يمكنك تعديل الألوان والخطوط من هنا بسهولة.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-sm border-r-4 border-green-500">
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-code text-green-500"></i>
+                            script.js
+                        </h4>
+                        <p class="text-gray-600">يدير جميع التفاعلات: نظام الثيمات، الصوتيات، المؤشر الحي، النماذج، والتأثيرات المتحركة.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customization -->
+            <section id="customization" class="mb-16">
+                <h2 class="text-4xl font-black mb-6 flex items-center gap-3">
+                    <i class="fas fa-palette text-purple-600"></i>
+                    دليل التخصيص
+                </h2>
+
+                <!-- Colors -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">1. تخصيص الألوان</h3>
+                    <p class="text-gray-600 mb-4">لتغيير الألوان الرئيسية، افتح ملف <code>style.css</code> وابحث عن المتغيرات في بداية الملف:</p>
+                    
+                    <div class="bg-gray-900 rounded-xl p-6 overflow-x-auto">
+                        <pre class="text-sm"><code class="language-css">:root {
+    --primary-rgb: 102, 126, 234;      /* اللون الأساسي */
+    --secondary-rgb: 237, 100, 166;    /* اللون الثانوي */
+    --accent-rgb: 255, 159, 64;        /* لون التمييز */
+}
+
+/* مثال: لتغيير اللون الأساسي للأخضر */
+:root {
+    --primary-rgb: 34, 197, 94;        /* أخضر */
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Images -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">2. تغيير الصور</h3>
+                    <div class="bg-blue-50 rounded-xl p-6">
+                        <ol class="list-decimal mr-6 space-y-3 text-gray-700">
+                            <li>احفظ صورك في مجلد <code>assets/images/</code></li>
+                            <li>افتح <code>index.html</code> وابحث عن العنصر <code>&lt;img&gt;</code> الذي تريد تغييره</li>
+                            <li>غيّر قيمة <code>src=""</code> لتشير لصورتك الجديدة</li>
+                        </ol>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 mt-4">
+                            <pre><code class="language-html">&lt;!-- قبل --&gt;
+&lt;img src="https://example.com/old-image.jpg" alt="صورة"&gt;
+
+&lt;!-- بعد --&gt;
+&lt;img src="assets/images/my-photo.jpg" alt="صورة"&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">3. تعديل المحتوى النصي</h3>
+                    <p class="text-gray-600 mb-4">جميع النصوص موجودة في <code>index.html</code>، ابحث عن القسم الذي تريد تعديله:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 border-r-4 border-purple-500">
+                            <h4 class="font-bold mb-2">قسم Hero (الرئيسية)</h4>
+                            <p class="text-sm text-gray-600">ابحث عن <code>&lt;section id="home"&gt;</code></p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-r-4 border-blue-500">
+                            <h4 class="font-bold mb-2">قسم About (عني)</h4>
+                            <p class="text-sm text-gray-600">ابحث عن <code>&lt;section id="about"&gt;</code></p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-r-4 border-green-500">
+                            <h4 class="font-bold mb-2">قسم Skills (المهارات)</h4>
+                            <p class="text-sm text-gray-600">ابحث عن <code>&lt;section id="skills"&gt;</code></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Items -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">4. إضافة/تعديل مشاريع Portfolio</h3>
+                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6">
+                        <p class="text-gray-700 mb-4">لإضافة مشروع جديد، انسخ البنية التالية والصقها داخل قسم Portfolio:</p>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <pre class="text-sm"><code class="language-html">&lt;div class="portfolio-card"&gt;
+    &lt;a href="رابط_المشروع" class="glightbox"&gt;
+        &lt;img src="صورة_المشروع.jpg" alt="اسم المشروع"&gt;
+        &lt;div class="portfolio-card-overlay"&gt;
+            &lt;h3&gt;اسم المشروع&lt;/h3&gt;
+            &lt;p&gt;وصف قصير للمشروع&lt;/p&gt;
+            &lt;div class="portfolio-card-tags"&gt;
+                &lt;span&gt;HTML&lt;/span&gt;
+                &lt;span&gt;CSS&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sections -->
+            <section id="sections" class="mb-16">
+                <h2 class="text-4xl font-black mb-6 flex items-center gap-3">
+                    <i class="fas fa-layer-group text-purple-600"></i>
+                    الأقسام المتوفرة
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-home text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Hero Section</h3>
+                        <p class="text-gray-600 text-sm">قسم الترحيب الرئيسي مع تأثير Particles وTyped Animation</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-user text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">About Section</h3>
+                        <p class="text-gray-600 text-sm">قسم التعريف بك مع إحصائيات احترافية</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Skills Section</h3>
+                        <p class="text-gray-600 text-sm">عرض مهاراتك التقنية مع تقييمات نجوم وشهادات</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-briefcase text-orange-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Portfolio Section</h3>
+                        <p class="text-gray-600 text-sm">معرض أعمالك مع Lightbox Gallery</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-blog text-pink-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Blog Section</h3>
+                        <p class="text-gray-600 text-sm">مدونة لعرض مقالاتك ونصائحك التقنية</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-tags text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pricing Section</h3>
+                        <p class="text-gray-600 text-sm">عرض باقات أسعار خدماتك (3 مستويات)</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-question-circle text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">FAQ Section</h3>
+                        <p class="text-gray-600 text-sm">الأسئلة الشائعة مع Accordion تفاعلي</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-star text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Testimonials Section</h3>
+                        <p class="text-gray-600 text-sm">آراء العملاء مع تقييمات المنصات</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deployment -->
+            <section id="deployment" class="mb-16">
+                <h2 class="text-4xl font-black mb-6 flex items-center gap-3">
+                    <i class="fas fa-cloud-upload-alt text-purple-600"></i>
+                    نشر الموقع
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- GitHub Pages -->
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 text-white">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="fab fa-github text-4xl"></i>
+                            <h3 class="text-2xl font-bold">GitHub Pages (مجاني)</h3>
+                        </div>
+                        <ol class="list-decimal mr-6 space-y-2 text-gray-200">
+                            <li>أنشئ حساب على GitHub إن لم يكن لديك</li>
+                            <li>أنشئ Repository جديد باسم <code>username.github.io</code></li>
+                            <li>ارفع ملفات المشروع للـ Repository</li>
+                            <li>افتح Settings → Pages → اختر Branch: main</li>
+                            <li>موقعك الآن متاح على <code>https://username.github.io</code></li>
+                        </ol>
+                    </div>
+
+                    <!-- Netlify -->
+                    <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl p-6 text-white">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="fas fa-server text-4xl"></i>
+                            <h3 class="text-2xl font-bold">Netlify (مجاني)</h3>
+                        </div>
+                        <ol class="list-decimal mr-6 space-y-2 text-teal-50">
+                            <li>انتقل إلى <code>netlify.com</code> وأنشئ حساب</li>
+                            <li>اسحب مجلد المشروع وأفلته في صفحة Netlify</li>
+                            <li>انتظر دقيقة واحدة للنشر التلقائي</li>
+                            <li>احصل على رابط مجاني مثل <code>yoursite.netlify.app</code></li>
+                        </ol>
+                    </div>
+
+                    <!-- Vercel -->
+                    <div class="bg-gradient-to-br from-black to-gray-900 rounded-2xl p-6 text-white">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i class="fas fa-bolt text-4xl"></i>
+                            <h3 class="text-2xl font-bold">Vercel (مجاني)</h3>
+                        </div>
+                        <ol class="list-decimal mr-6 space-y-2 text-gray-200">
+                            <li>انتقل إلى <code>vercel.com</code> وسجل دخول بـ GitHub</li>
+                            <li>اضغط "New Project" واختر Repository الخاص بك</li>
+                            <li>اضغط "Deploy" وانتظر دقائق قليلة</li>
+                            <li>موقعك جاهز على <code>yoursite.vercel.app</code></li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="mb-16">
+                <h2 class="text-4xl font-black mb-6 flex items-center gap-3">
+                    <i class="fas fa-question-circle text-purple-600"></i>
+                    الأسئلة الشائعة
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            هل أحتاج خبرة برمجية لاستخدام القالب؟
+                        </h3>
+                        <p class="text-gray-600 pr-8">لا، القالب سهل الاستخدام للمبتدئين. كل ما تحتاجه هو تعديل النصوص والصور في ملف HTML. لكن معرفة أساسيات HTML/CSS ستساعدك في التخصيص المتقدم.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            هل القالب متوافق مع الموبايل؟
+                        </h3>
+                        <p class="text-gray-600 pr-8">نعم بالتأكيد! القالب مصمم بتقنية Responsive Design ويعمل بشكل مثالي على جميع الأجهزة (موبايل، تابلت، كمبيوتر).</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            هل يمكنني استخدام القالب لمشاريع تجارية؟
+                        </h3>
+                        <p class="text-gray-600 pr-8">نعم، يمكنك استخدام القالب لأي غرض تجاري أو شخصي بدون قيود.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            كيف أضيف نموذج اتصال يعمل فعلياً؟
+                        </h3>
+                        <p class="text-gray-600 pr-8">يمكنك استخدام خدمات مثل EmailJS, Formspree, أو Google Forms. راجع قسم "تكامل نموذج الاتصال" في التوثيق.</p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            هل هناك دعم فني متاح؟
+                        </h3>
+                        <p class="text-gray-600 pr-8">نعم، إذا واجهت أي مشكلة يمكنك التواصل معنا عبر البريد الإلكتروني أو فتح Issue على GitHub.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white text-center">
+                <h3 class="text-2xl font-bold mb-2">هل تحتاج مساعدة إضافية؟</h3>
+                <p class="mb-6 text-purple-100">فريق الدعم جاهز لمساعدتك في أي وقت</p>
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="px-6 py-3 bg-white text-purple-600 rounded-lg font-bold hover:shadow-lg transition">
+                        <i class="fas fa-envelope ml-2"></i>اتصل بنا
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg font-bold hover:bg-white/30 transition">
+                        <i class="fab fa-github ml-2"></i>GitHub
+                    </a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script>
+        // Active sidebar navigation
+        const links = document.querySelectorAll('.sidebar-link');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
