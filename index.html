@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="بورتفوليو احترافي | Portfolio - مطور ويب محترف">
+    <meta name="description" content="بورتفوليو احترافي لعرض أعمالي ومهاراتي في تطوير الويب. أقدم خدمات تطوير مواقع الويب، تطبيقات الموبايل، تصميم UI/UX والمزيد.">
+    <meta name="keywords" content="portfolio, web developer, مطور ويب, تصميم مواقع, تطوير تطبيقات, UI/UX, freelancer, مبرمج, designer">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Arabic">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" content="بورتفوليو احترافي | Portfolio - مطور ويب محترف">
+    <meta property="og:description" content="بورتفوليو احترافي لعرض أعمالي ومهاراتي في تطوير الويب والتطبيقات">
+    <meta property="og:image" content="https://yourwebsite.com/preview.jpg">
+    <meta property="og:site_name" content="Portfolio">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/">
+    <meta property="twitter:title" content="بورتفوليو احترافي | Portfolio - مطور ويب محترف">
+    <meta property="twitter:description" content="بورتفوليو احترافي لعرض أعمالي ومهاراتي في تطوير الويب والتطبيقات">
+    <meta property="twitter:image" content="https://yourwebsite.com/preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    
+    <title>بورتفوليو احترافي | Portfolio - مطور ويب محترف</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GLightbox for Portfolio Gallery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#ec4899',
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Your Name",
+        "jobTitle": "Full Stack Web Developer",
+        "url": "https://yourwebsite.com",
+        "sameAs": [
+            "https://github.com/yourusername",
+            "https://linkedin.com/in/yourusername",
+            "https://twitter.com/yourusername"
+        ],
+        "knowsAbout": [
+            "Web Development",
+            "JavaScript",
+            "React",
+            "Node.js",
+            "UI/UX Design",
+            "Mobile Development"
+        ],
+        "description": "مطور ويب محترف متخصص في تطوير مواقع الويب والتطبيقات باستخدام أحدث التقنيات",
+        "image": "https://yourwebsite.com/profile.jpg"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portfolio",
+        "url": "https://yourwebsite.com",
+        "description": "بورتفوليو احترافي لعرض الأعمال والمشاريع",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourwebsite.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body class="font-cairo bg-gray-50 overflow-x-hidden">
+    
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 bg-gradient-to-br from-primary to-secondary z-50 flex items-center justify-center">
+        <div class="loader-spinner"></div>
+    </div>
+    
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent z-50 transition-all duration-150"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-40 bg-white/90 backdrop-blur-md shadow-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    <i class="fas fa-code mr-2"></i>Portfolio
+                </a>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-8 space-x-reverse">
+                    <li><a href="#home" class="nav-link hover:text-primary transition">الرئيسية</a></li>
+                    <li><a href="#about" class="nav-link hover:text-primary transition">عني</a></li>
+                    <li><a href="#skills" class="nav-link hover:text-primary transition">المهارات</a></li>
+                    <li><a href="#portfolio" class="nav-link hover:text-primary transition">الأعمال</a></li>
+                    <li><a href="#services" class="nav-link hover:text-primary transition">الخدمات</a></li>
+                    <li><a href="#testimonials" class="nav-link hover:text-primary transition">آراء العملاء</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-primary transition">اتصل بي</a></li>
+                </ul>
+                
+                <!-- Dark Mode Toggle -->
+                <button class="hidden md:block text-2xl text-gray-700 dark:text-gray-300 hover:text-primary transition ml-4" id="dark-mode-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-2xl text-gray-700 dark:text-gray-300" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu hidden md:hidden mt-4 pb-4" id="mobile-menu">
+                <ul class="space-y-3">
+                    <li><a href="#home" class="block hover:text-primary transition">الرئيسية</a></li>
+                    <li><a href="#about" class="block hover:text-primary transition">عني</a></li>
+                    <li><a href="#skills" class="block hover:text-primary transition">المهارات</a></li>
+                    <li><a href="#portfolio" class="block hover:text-primary transition">الأعمال</a></li>
+                    <li><a href="#services" class="block hover:text-primary transition">الخدمات</a></li>
+                    <li><a href="#testimonials" class="block hover:text-primary transition">آراء العملاء</a></li>
+                    <li><a href="#contact" class="block hover:text-primary transition">اتصل بي</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-secondary to-accent text-white relative overflow-hidden pt-20">
+        <!-- Particles Background -->
+        <div id="particles-js" class="absolute inset-0"></div>
+        
+        <!-- Background Animation -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="shapes-bg"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 relative">
+            <div class="text-center" data-aos="fade-up">
+                <div class="mb-6">
+                    <img src="https://ui-avatars.com/api/?name=Portfolio&size=200&background=ffffff&color=6366f1&bold=true" 
+                         alt="Profile" 
+                         class="w-48 h-48 rounded-full mx-auto border-8 border-white shadow-2xl hero-image">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
+                    مرحباً، أنا <span class="text-yellow-300" id="typed"></span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-100">
+                    أصمم وأطور مواقع ويب احترافية وتطبيقات تفاعلية
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="#portfolio" class="btn-primary bg-white text-primary hover:bg-gray-100">
+                        <i class="fas fa-briefcase ml-2"></i>
+                        شاهد أعمالي
+                    </a>
+                    <a href="#contact" class="btn-secondary border-2 border-white text-white hover:bg-white hover:text-primary">
+                        <i class="fas fa-envelope ml-2"></i>
+                        تواصل معي
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="mt-8 flex gap-4 justify-center">
+                    <a href="#" class="social-icon hover:scale-110 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon hover:scale-110 transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-icon hover:scale-110 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon hover:scale-110 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Arrow -->
+        <a href="#about" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-3xl"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">عني</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" 
+                         alt="About" 
+                         class="rounded-lg shadow-2xl">
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-3xl font-bold mb-4 text-gray-800">مطور ويب محترف</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        أنا مطور ويب شغوف بخبرة تزيد عن 5 سنوات في تطوير مواقع الويب والتطبيقات. أتخصص في إنشاء تجارب رقمية استثنائية تجمع بين التصميم الجميل والوظائف القوية.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        أعمل مع التقنيات الحديثة لتقديم حلول مبتكرة تلبي احتياجات العملاء وتتجاوز توقعاتهم. هدفي هو تحويل الأفكار إلى واقع رقمي ناجح.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="stat-card">
+                            <i class="fas fa-project-diagram text-3xl text-primary mb-2"></i>
+                            <h4 class="text-3xl font-bold text-gray-800">150+</h4>
+                            <p class="text-gray-600">مشروع مكتمل</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users text-3xl text-secondary mb-2"></i>
+                            <h4 class="text-3xl font-bold text-gray-800">100+</h4>
+                            <p class="text-gray-600">عميل سعيد</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary bg-gradient-to-r from-primary to-secondary text-white">
+                        <i class="fas fa-download ml-2"></i>
+                        تحميل السيرة الذاتية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">مهاراتي</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-600 mt-4">التقنيات والأدوات التي أتقنها</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Frontend Skills -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-laptop-code text-5xl text-primary mb-3"></i>
+                        <h3 class="text-2xl font-bold">Frontend</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>HTML/CSS</span>
+                                <span class="text-primary font-semibold">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>JavaScript</span>
+                                <span class="text-primary font-semibold">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>React.js</span>
+                                <span class="text-primary font-semibold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>Tailwind CSS</span>
+                                <span class="text-primary font-semibold">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-server text-5xl text-secondary mb-3"></i>
+                        <h3 class="text-2xl font-bold">Backend</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>Node.js</span>
+                                <span class="text-secondary font-semibold">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-secondary" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>PHP</span>
+                                <span class="text-secondary font-semibold">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-secondary" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>MySQL</span>
+                                <span class="text-secondary font-semibold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-secondary" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>MongoDB</span>
+                                <span class="text-secondary font-semibold">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-secondary" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-tools text-5xl text-accent mb-3"></i>
+                        <h3 class="text-2xl font-bold">أدوات أخرى</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>Git & GitHub</span>
+                                <span class="text-accent font-semibold">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-accent" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>Figma/Adobe XD</span>
+                                <span class="text-accent font-semibold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-accent" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>WordPress</span>
+                                <span class="text-accent font-semibold">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-accent" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>SEO</span>
+                                <span class="text-accent font-semibold">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress bg-accent" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">أعمالي</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-600 mt-4">مجموعة من أفضل مشاريعي</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="web">مواقع ويب</button>
+                <button class="filter-btn" data-filter="app">تطبيقات</button>
+                <button class="filter-btn" data-filter="design">تصاميم</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="web" data-aos="zoom-in">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" 
+                             alt="Project 1" 
+                             class="w-full h-64 object-cover">
+                        <div class="portfolio-overlay">
+                            <h3 class="text-xl font-bold mb-2">موقع تجاري</h3>
+                            <p class="text-sm mb-4">تصميم وتطوير موقع تجاري متكامل</p>
+                            <div class="flex gap-2 justify-center">
+                                <a href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop" 
+                                   class="portfolio-btn glightbox" 
+                                   data-gallery="portfolio"
+                                   data-glightbox="title: موقع تجاري; description: تصميم وتطوير موقع تجاري متكامل">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="portfolio-btn" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="app" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop" 
+                             alt="Project 2" 
+                             class="w-full h-64 object-cover">
+                        <div class="portfolio-overlay">
+                            <h3 class="text-xl font-bold mb-2">تطبيق موبايل</h3>
+                            <p class="text-sm mb-4">تطبيق iOS و Android احترافي</p>
+                            <div class="flex gap-2 justify-center">
+                                <a href="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop" 
+                                   class="portfolio-btn glightbox" 
+                                   data-gallery="portfolio"
+                                   data-glightbox="title: تطبيق موبايل; description: تطبيق iOS و Android احترافي">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="portfolio-btn" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="design" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" 
+                             alt="Project 3" 
+                             class="w-full h-64 object-cover">
+                        <div class="portfolio-overlay">
+                            <h3 class="text-xl font-bold mb-2">تصميم واجهة</h3>
+                            <p class="text-sm mb-4">تصميم UI/UX مبتكر وجذاب</p>
+                            <div class="flex gap-2 justify-center">
+                                <a href="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop" 
+                                   class="portfolio-btn glightbox" 
+                                   data-gallery="portfolio"
+                                   data-glightbox="title: تصميم واجهة; description: تصميم UI/UX مبتكر وجذاب">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="portfolio-btn" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="web" data-aos="zoom-in">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop" 
+                             alt="Project 4" 
+                             class="w-full h-64 object-cover">
+                        <div class="portfolio-overlay">
+                            <h3 class="text-xl font-bold mb-2">متجر إلكتروني</h3>
+                            <p class="text-sm mb-4">منصة تجارة إلكترونية متقدمة</p>
+                            <div class="flex gap-2 justify-center">
+                                <a href="https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&h=800&fit=crop" 
+                                   class="portfolio-btn glightbox" 
+                                   data-gallery="portfolio"
+                                   data-glightbox="title: متجر إلكتروني; description: منصة تجارة إلكترونية متقدمة">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="portfolio-btn" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-category="app" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" 
+                             alt="Project 5" 
+                             class="w-full h-64 object-cover">
+                        <div class="portfolio-overlay">
+                            <h3 class="text-xl font-bold mb-2">لوحة تحكم</h3>
+                            <p class="text-sm mb-4">نظام إدارة متكامل وسهل الاستخدام</p>
+                            <div class="flex gap-2 justify-center">
+                                <a href="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop" 
+                                   class="portfolio-btn glightbox" 
+                                   data-gallery="portfolio"
+                                   data-glightbox="title: لوحة تحكم; description: نظام إدارة متكامل وسهل الاستخدام">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="portfolio-btn" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-category="design" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop" 
+                             alt="Project 6" 
+                             class="w-full h-64 object-cover">
+                        <div class="portfolio-overlay">
+                            <h3 class="text-xl font-bold mb-2">هوية بصرية</h3>
+                            <p class="text-sm mb-4">تصميم هوية بصرية متكاملة للعلامة التجارية</p>
+                            <div class="flex gap-2 justify-center">
+                                <a href="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&h=800&fit=crop" 
+                                   class="portfolio-btn glightbox" 
+                                   data-gallery="portfolio"
+                                   data-glightbox="title: هوية بصرية; description: تصميم هوية بصرية متكاملة للعلامة التجارية">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="portfolio-btn" target="_blank">
+                                    <i class="fas fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">الإنجازات والشهادات</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-600 mt-4">شهادات وإنجازات حصلت عليها</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Achievement 1 -->
+                <div class="achievement-card" data-aos="flip-left">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2">5+</h3>
+                    <p class="text-gray-700 font-semibold">سنوات خبرة</p>
+                </div>
+                
+                <!-- Achievement 2 -->
+                <div class="achievement-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-secondary mb-2">15+</h3>
+                    <p class="text-gray-700 font-semibold">شهادة احترافية</p>
+                </div>
+                
+                <!-- Achievement 3 -->
+                <div class="achievement-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-accent mb-2">10+</h3>
+                    <p class="text-gray-700 font-semibold">جوائز وتكريمات</p>
+                </div>
+                
+                <!-- Achievement 4 -->
+                <div class="achievement-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-yellow-500 mb-2">4.9</h3>
+                    <p class="text-gray-700 font-semibold">تقييم العملاء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">خدماتي</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-600 mt-4">الخدمات التي أقدمها لعملائي</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تطوير مواقع الويب</h3>
+                    <p class="text-gray-600 mb-4">
+                        تصميم وتطوير مواقع ويب احترافية وسريعة ومتجاوبة مع جميع الأجهزة باستخدام أحدث التقنيات
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-primary ml-2"></i>تصميم متجاوب</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>أداء عالي</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>SEO محسّن</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تطوير تطبيقات الموبايل</h3>
+                    <p class="text-gray-600 mb-4">
+                        تطوير تطبيقات موبايل أصلية ومتعددة المنصات لنظامي iOS و Android بأداء ممتاز
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-primary ml-2"></i>iOS & Android</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تصميم حديث</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تجربة مستخدم رائعة</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تصميم UI/UX</h3>
+                    <p class="text-gray-600 mb-4">
+                        تصميم واجهات مستخدم جذابة وسهلة الاستخدام مع تجربة مستخدم استثنائية
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-primary ml-2"></i>تصميم مبتكر</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>واجهات تفاعلية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تجربة سلسة</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">المتاجر الإلكترونية</h3>
+                    <p class="text-gray-600 mb-4">
+                        إنشاء متاجر إلكترونية متكاملة مع أنظمة دفع آمنة وإدارة سهلة للمنتجات
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-primary ml-2"></i>بوابات دفع متعددة</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>إدارة المخزون</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تقارير مفصلة</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تحسين محركات البحث</h3>
+                    <p class="text-gray-600 mb-4">
+                        تحسين ظهور موقعك في نتائج البحث وزيادة الزيارات العضوية بشكل مستدام
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-primary ml-2"></i>تحليل الكلمات المفتاحية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تحسين المحتوى</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>بناء الروابط</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">الصيانة والدعم</h3>
+                    <p class="text-gray-600 mb-4">
+                        خدمات صيانة ودعم فني مستمر لضمان عمل موقعك أو تطبيقك بشكل مثالي
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-primary ml-2"></i>دعم فني 24/7</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>تحديثات دورية</li>
+                        <li><i class="fas fa-check text-primary ml-2"></i>نسخ احتياطي</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">آراء العملاء</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-4"></div>
+                <p class="text-gray-100">ماذا يقول عملائي عن خدماتي</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&size=60&background=6366f1&color=fff" 
+                             alt="Client" 
+                             class="w-16 h-16 rounded-full ml-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">أحمد علي</h4>
+                            <p class="text-sm text-gray-600">مدير شركة تقنية</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "عمل احترافي جداً وخدمة ممتازة. تم تسليم المشروع في الوقت المحدد بجودة عالية. أنصح بالتعامل معه بشدة!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Sara+Mohamed&size=60&background=8b5cf6&color=fff" 
+                             alt="Client" 
+                             class="w-16 h-16 rounded-full ml-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">سارة محمد</h4>
+                            <p class="text-sm text-gray-600">صاحبة متجر إلكتروني</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "تصميم رائع وسرعة في الأداء. المتجر الإلكتروني الذي صممه لي زاد من مبيعاتي بشكل ملحوظ. شكراً جزيلاً!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Khaled+Hassan&size=60&background=ec4899&color=fff" 
+                             alt="Client" 
+                             class="w-16 h-16 rounded-full ml-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">خالد حسن</h4>
+                            <p class="text-sm text-gray-600">رائد أعمال</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "محترف بكل معنى الكلمة. فهم احتياجاتي بدقة وقدم حلولاً مبتكرة. سأتعامل معه في جميع مشاريعي القادمة."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">تواصل معي</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-600 mt-4">لديك مشروع؟ دعنا نتحدث!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">معلومات التواصل</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">العنوان</h4>
+                                <p class="text-gray-600">القاهرة، مصر</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">الهاتف</h4>
+                                <p class="text-gray-600" dir="ltr">+20 123 456 7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">البريد الإلكتروني</h4>
+                                <p class="text-gray-600 cursor-pointer hover:text-primary transition" 
+                                   id="email-copy" 
+                                   title="انقر للنسخ"
+                                   onclick="copyEmail()">
+                                   info@portfolio.com <i class="fas fa-copy text-sm mr-2"></i>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">ساعات العمل</h4>
+                                <p class="text-gray-600">الأحد - الخميس: 9:00 ص - 6:00 م</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">تابعني على</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">الاسم</label>
+                            <input type="text" 
+                                   name="name" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">البريد الإلكتروني</label>
+                            <input type="email" 
+                                   name="email" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">الموضوع</label>
+                            <input type="text" 
+                                   name="subject" 
+                                   required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">الرسالة</label>
+                            <textarea name="message" 
+                                      rows="5" 
+                                      required
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary bg-gradient-to-r from-primary to-secondary text-white w-full">
+                            <i class="fas fa-paper-plane ml-2"></i>
+                            إرسال الرسالة
+                        </button>
+                        
+                        <div id="form-message" class="hidden"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        <i class="fas fa-code ml-2"></i>Portfolio
+                    </h3>
+                    <p class="text-gray-400">
+                        مطور ويب محترف متخصص في إنشاء تجارب رقمية استثنائية.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-primary transition">الرئيسية</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">عني</a></li>
+                        <li><a href="#portfolio" class="hover:text-primary transition">أعمالي</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">اتصل بي</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">خدماتي</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-primary transition">تطوير الويب</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">تطبيقات الموبايل</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">تصميم UI/UX</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">المتاجر الإلكترونية</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">النشرة البريدية</h4>
+                    <p class="text-gray-400 mb-4">اشترك ليصلك كل جديد</p>
+                    <form id="newsletter-form" class="flex">
+                        <input type="email" 
+                               placeholder="بريدك الإلكتروني" 
+                               class="flex-1 px-4 py-2 rounded-r-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-primary">
+                        <button type="submit" class="bg-gradient-to-r from-primary to-secondary px-6 py-2 rounded-l-lg hover:opacity-90 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Portfolio. جميع الحقوق محفوظة.</p>
+                <p class="mt-2">
+                    صنع بـ <i class="fas fa-heart text-red-500"></i> بواسطة مطور محترف
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16"></script>
+    
+    <!-- GLightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
