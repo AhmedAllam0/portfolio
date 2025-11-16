@@ -192,6 +192,23 @@
             <div class="shapes-bg"></div>
         </div>
         
+        <!-- Aurora & Theme Overlay -->
+        <div class="hero-aurora" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="hero-theme-overlay"></div>
+        </div>
+        
+        <!-- Live Indicator Widget -->
+        <div class="live-indicator" data-aos="fade-down" data-aos-delay="200">
+            <div class="live-indicator__pulse"></div>
+            <div>
+                <p class="live-label">متصل الآن</p>
+                <p class="live-clock"><span id="live-time">--:--</span> <span id="live-greeting">...</span></p>
+            </div>
+        </div>
+        
         <div class="container mx-auto px-4 z-10 relative">
             <div class="text-center" data-aos="fade-up">
                 <div class="mb-6">
@@ -206,11 +223,11 @@
                     أصمم وأطور مواقع ويب احترافية وتطبيقات تفاعلية
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="#portfolio" class="btn-primary magnetic-btn bg-white text-primary hover:bg-gray-100">
+                    <a href="#portfolio" class="btn-primary magnetic-btn bg-white text-primary hover:bg-gray-100" data-sound="chime">
                         <i class="fas fa-briefcase ml-2"></i>
                         شاهد أعمالي
                     </a>
-                    <a href="#contact" class="btn-secondary magnetic-btn border-2 border-white text-white hover:bg-white hover:text-primary">
+                    <a href="#contact" class="btn-secondary magnetic-btn border-2 border-white text-white hover:bg-white hover:text-primary" data-sound="chime">
                         <i class="fas fa-envelope ml-2"></i>
                         تواصل معي
                     </a>
@@ -652,6 +669,159 @@
         </div>
     </section>
 
+    <!-- Immersive 3D Showcase -->
+    <section id="immersive-3d" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+            <div class="aurora-noise"></div>
+        </div>
+        <div class="container mx-auto px-4 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up" class="order-2 lg:order-1">
+                    <p class="text-sm uppercase tracking-widest text-slate-400 mb-4">مختبر الهولوجرام</p>
+                    <h2 class="text-4xl font-bold mb-6">هولوجرام رقمي يتنفس ألوان العلامة</h2>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        يتم إنشاء هذا المجسم ثلاثي الأبعاد باستخدام WebGL و Three.js في الوقت الفعلي، ويتفاعل مع حركة المؤشر،
+                        ويغير أطيافه مباشرةً مع أي ثيم تختاره من مختبر الألوان.
+                    </p>
+                    <ul class="space-y-3 text-slate-200">
+                        <li><i class="fas fa-check ml-2 text-primary"></i>تظليل ديناميكي يعتمد على الـ shaders</li>
+                        <li><i class="fas fa-check ml-2 text-primary"></i>حساسية دقيقة لحركة المؤشر والتمرير</li>
+                        <li><i class="fas fa-check ml-2 text-primary"></i>مزامنة لحظية مع الثيمات المختارة</li>
+                    </ul>
+                </div>
+                <div data-aos="zoom-in" class="order-1 lg:order-2">
+                    <div class="holo-stage">
+                        <canvas id="holo-canvas" aria-label="عرض ثلاثي الأبعاد تفاعلي"></canvas>
+                        <div class="holo-hint">
+                            <i class="fas fa-arrows-alt"></i>
+                            <span>حرّك المؤشر أو المس للتفاعل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Timeline -->
+    <section id="timeline" class="py-20 bg-slate-900/90 text-white relative overflow-hidden">
+        <div class="timeline-aurora" aria-hidden="true"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="section-title text-white">رحلة الخبرة</h2>
+                <div class="section-divider mx-auto"></div>
+                <p class="text-gray-200 mt-4 max-w-3xl mx-auto">
+                    مراحل تطورية متتالية صنعت خبرتي المتخصصة في تطوير الحلول الرقمية المتكاملة
+                </p>
+            </div>
+            <div class="timeline-grid">
+                <div class="timeline-item" data-year="2018" data-aos="fade-left">
+                    <h3>البدايات الاحترافية</h3>
+                    <p>
+                        انضممت إلى أول فريق ناشئ لتطوير منتجات رقمية ناشئة، وبنيت أنظمة إدارة محتوى مخصصة.
+                    </p>
+                    <ul>
+                        <li>إطلاق 12 موقعاً ديناميكياً</li>
+                        <li>تصميم أول مكتبة UI خاصة بي</li>
+                    </ul>
+                </div>
+                <div class="timeline-item" data-year="2020" data-aos="fade-right" data-aos-delay="100">
+                    <h3>التوسع التقني</h3>
+                    <p>
+                        قيادة فرق متعددة لإنشاء متاجر إلكترونية وحلول SaaS مع قابلية توسع عالية وأداء مرتفع.
+                    </p>
+                    <ul>
+                        <li>بناء متاجر تخدم +150K زائر</li>
+                        <li>دمج الأتمتة وCI/CD</li>
+                    </ul>
+                </div>
+                <div class="timeline-item" data-year="2022" data-aos="fade-left" data-aos-delay="150">
+                    <h3>الابتكار التجريبي</h3>
+                    <p>
+                        تجربة واجهات ثلاثية الأبعاد وتفاعلات غامرة، وإطلاق أنظمة تصميم custom Design Systems.
+                    </p>
+                    <ul>
+                        <li>تصميم 3 منتجات متقدمة</li>
+                        <li>تطوير مكتبة مكونات 3D</li>
+                    </ul>
+                </div>
+                <div class="timeline-item" data-year="2024" data-aos="fade-right" data-aos-delay="200">
+                    <h3>الحلول المتكاملة</h3>
+                    <p>
+                        بناء تجارب رقمية كاملة تشمل الاستراتيجية، التصميم، التطوير، والنشر السحابي الذكي.
+                    </p>
+                    <ul>
+                        <li>شراكات مع علامات كبرى</li>
+                        <li>إطلاق منصات تعتمد الذكاء الاصطناعي</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Mode Experience -->
+    <section id="story-mode" class="relative bg-slate-950 text-white overflow-hidden">
+        <div class="story-glow" aria-hidden="true"></div>
+        <div class="container mx-auto px-4 py-24">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-sm uppercase tracking-[0.4em] text-slate-400 mb-3">Story Mode</p>
+                <h2 class="text-4xl font-bold">رحلة العميل بطريقة سينمائية</h2>
+                <p class="text-slate-300 mt-4 max-w-2xl mx-auto">
+                    تجربة سردية غامرة متزامنة مع تمريرك توضّح كيف تتحوّل الفكرة إلى منتج رقمي خارق.
+                </p>
+            </div>
+            <div class="story-track">
+                <div class="story-panel" data-story="spark">
+                    <div class="story-panel__content">
+                        <p class="story-label">الشرارة</p>
+                        <h3>نبدأ بورشة غمرية</h3>
+                        <p>جلسة اكتشاف سريعة تلتقط قصة العلامة، تحدياتها، وأهدافها الجريئة.</p>
+                        <ul>
+                            <li>لوحات رؤى حية</li>
+                            <li>تحليل سريع للمنافسين</li>
+                            <li>تحديد KPI واقعي</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-panel" data-story="design">
+                    <div class="story-panel__content">
+                        <p class="story-label">التصميم الواعي</p>
+                        <h3>نماذج عالية الدقة + تجارب تفاعلية</h3>
+                        <p>نستخدم motion boards و micro-interactions لإثبات أن تجربة المستخدم ستكون خارقة.</p>
+                        <ul>
+                            <li>بناء نظام تصميم خاص</li>
+                            <li>اختبارات مستخدمين سريعة</li>
+                            <li>تغذية راجعة فورية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-panel" data-story="build">
+                    <div class="story-panel__content">
+                        <p class="story-label">التطوير الغامر</p>
+                        <h3>كود نظيف + بنية سحابية ذكية</h3>
+                        <p>تقنيات حديثة، أتمتة CI/CD، واختبارات أداء في الوقت الفعلي.</p>
+                        <ul>
+                            <li>بنية قابلة للتوسع</li>
+                            <li>تحسين الأداء قبل الإطلاق</li>
+                            <li>لوحات تحكم حية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-panel" data-story="launch">
+                    <div class="story-panel__content">
+                        <p class="story-label">الإطلاق المتوهج</p>
+                        <h3>إطلاق سينمائي + مراقبة ذكية</h3>
+                        <p>تجربة إطلاق مُخرجة بإتقان مع مراقبة تلقائية وتحسين مستمر.</p>
+                        <ul>
+                            <li>ضبط تحليلات مباشر</li>
+                            <li>حملات Activation إبداعية</li>
+                            <li>تحسينات أسبوعية بعد الإطلاق</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
@@ -1034,6 +1204,55 @@
         </div>
     </footer>
 
+    <!-- Theme Lab Switcher -->
+    <div class="theme-lab" id="theme-lab">
+        <button class="theme-lab__toggle" id="theme-toggle" aria-label="تبديل مختبر الألوان">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-lab__panel">
+            <p class="theme-lab__title">مختبر الألوان</p>
+            <div class="theme-dots">
+                <button class="theme-dot active" data-theme="default" aria-label="الطابع الكلاسيكي">
+                    <span style="--dot-primary:#6366f1; --dot-secondary:#8b5cf6;"></span>
+                </button>
+                <button class="theme-dot" data-theme="ocean" aria-label="محيطات رقمية">
+                    <span style="--dot-primary:#0ea5e9; --dot-secondary:#22d3ee;"></span>
+                </button>
+                <button class="theme-dot" data-theme="sunset" aria-label="شفق ملهم">
+                    <span style="--dot-primary:#fb7185; --dot-secondary:#fbbf24;"></span>
+                </button>
+                <button class="theme-dot" data-theme="forest" aria-label="غابة هادئة">
+                    <span style="--dot-primary:#34d399; --dot-secondary:#10b981;"></span>
+                </button>
+                <button class="theme-dot" data-theme="luxe" aria-label="طابع فاخر">
+                    <span style="--dot-primary:#f472b6; --dot-secondary:#c084fc;"></span>
+                </button>
+            </div>
+            <button class="theme-random" id="theme-random">
+                <i class="fas fa-random ml-2"></i>
+                لون مفاجئ
+            </button>
+        </div>
+    </div>
+
+    <!-- Audio Hub -->
+    <div class="audio-hub audio-hub--muted" id="audio-hub">
+        <button class="audio-hub__toggle" id="audio-toggle" aria-pressed="false" aria-label="تشغيل أو إيقاف المساحة الصوتية">
+            <span class="audio-ring"></span>
+            <i class="fas fa-waveform"></i>
+        </button>
+        <div class="audio-hub__data">
+            <p class="audio-hub__title">مساحة صوتية حية</p>
+            <p class="audio-hub__status" id="audio-status">صامتة</p>
+        </div>
+        <audio id="ambient-audio" loop preload="auto">
+            <source src="https://cdn.pixabay.com/download/audio/2023/04/04/audio_0b58a54d56.mp3?filename=ethereal-ambience-143039.mp3" type="audio/mp3">
+        </audio>
+        <audio id="ui-chime" preload="auto">
+            <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_06d5ef6e1d.mp3?filename=crystal-notification-110622.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
     <!-- Scroll to Top Button -->
     <button id="scroll-top" class="scroll-top-btn">
         <i class="fas fa-arrow-up"></i>
@@ -1044,6 +1263,9 @@
     
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Three.js for immersive hologram -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js" integrity="sha512-eAYLPkfM3npzFmnNFV3TbP7LhTcdSK8a1huV1J1N9zeps2sonMSKcwk3Y8ZndKyVKoU9pYNCXS6/4FwXk4HknA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!-- Typed.js -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16"></script>

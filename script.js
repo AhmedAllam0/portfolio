@@ -1057,6 +1057,291 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealTextElements.forEach(el => revealObserver.observe(el));
 
+// ========== Live Indicator Clock ========== 
+function initLiveIndicator() {
+    const timeElement = document.getElementById('live-time');
+    const greetingElement = document.getElementById('live-greeting');
+    const indicator = document.querySelector('.live-indicator');
+    if (!timeElement || !greetingElement || !indicator) return;
+    const formatter = new Intl.DateTimeFormat('ar-EG', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+    const updateClock = () => {
+        const now = new Date();
+        timeElement.textContent = formatter.format(now);
+        greetingElement.textContent = getArabicGreeting(now.getHours());
+    };
+    updateClock();
+    setInterval(updateClock, 30000);
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            updateClock();
+        }
+    });
+}
+
+function getArabicGreeting(hour) {
+    if (hour < 6) return 'ليلة هادئة';
+    if (hour < 12) return 'صباح الإلهام';
+    if (hour < 17) return 'نهار إبداعي';
+    if (hour < 21) return 'مساء متألق';
+    return 'ليلة مبهرة';
+}
+
+// ========== Theme Lab Palette ========== 
+function initThemeLab() {
+    const themeLab = document.getElementById('theme-lab');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeDots = document.querySelectorAll('.theme-dot');
+    const randomButton = document.getElementById('theme-random');
+    if (!themeLab || !themeToggle || !themeDots.length) return;
+    const THEME_STORAGE_KEY = 'preferredTheme';
+    const availableThemes = ['default', 'ocean', 'sunset', 'forest', 'luxe'];
+    const themedClasses = availableThemes
+        .filter(theme => theme !== 'default')
+        .map(theme => `theme-${theme}`);
+
+    function applyTheme(themeName) {
+        document.body.classList.remove(...themedClasses);
+        if (themeName && themeName !== 'default' && themedClasses.includes(`theme-${themeName}`)) {
+            document.body.classList.add(`theme-${themeName}`);
+        }
+        themeDots.forEach(dot => {
+            const isActive = dot.dataset.theme === themeName;
+            dot.classList.toggle('active', isActive);
+        });
+        localStorage.setItem(THEME_STORAGE_KEY, themeName);
+        document.dispatchEvent(new CustomEvent('themechange', {
+            detail: { theme: themeName }
+        }));
+    }
+
+    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'default';
+    const initialTheme = availableThemes.includes(storedTheme) ? storedTheme : 'default';
+    applyTheme(initialTheme);
+
+    themeToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        themeLab.classList.toggle('theme-lab--open');
+    });
+
+    themeDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const selectedTheme = dot.dataset.theme || 'default';
+            applyTheme(selectedTheme);
+            themeLab.classList.remove('theme-lab--open');
+        });
+    });
+
+    if (randomButton) {
+        randomButton.addEventListener('click', () => {
+            const currentTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'default';
+            const pool = availableThemes.filter(theme => theme !== currentTheme);
+            const surpriseTheme = pool[Math.floor(Math.random() * pool.length)] || 'default';
+            applyTheme(surpriseTheme);
+        });
+    }
+
+    document.addEventListener('click', (event) => {
+        if (!themeLab.contains(event.target)) {
+            themeLab.classList.remove('theme-lab--open');
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            themeLab.classList.remove('theme-lab--open');
+        }
+    });
+}
+
+// ========== Immersive Soundscape ========== 
+function initSoundscape() {
+    const hub = document.getElementById('audio-hub');
+    const toggle = document.getElementById('audio-toggle');
+    const status = document.getElementById('audio-status');
+    const ambient = document.getElementById('ambient-audio');
+    const chime = document.getElementById('ui-chime');
+    if (!hub || !toggle || !status || !ambient) return;
+
+    const SOUND_STORAGE_KEY = 'soundscapeEnabled';
+    let enabled = localStorage.getItem(SOUND_STORAGE_KEY) === 'true';
+    let userInteracted = false;
+
+    const updateUI = () => {
+        hub.classList.toggle('audio-hub--muted', !enabled);
+        toggle.setAttribute('aria-pressed', enabled);
+        status.textContent = enabled ? 'تتوهج الآن' : 'صامتة';
+    };
+
+    const attemptPlayAmbient = async () => {
+        if (!enabled) return;
+        ambient.volume = 0.6;
+        try {
+            await ambient.play();
+        } catch (err) {
+            console.warn('Ambient audio blocked until user interaction.', err);
+        }
+    };
+
+    toggle.addEventListener('click', () => {
+        enabled = !enabled;
+        localStorage.setItem(SOUND_STORAGE_KEY, enabled);
+        updateUI();
+        if (enabled) {
+            attemptPlayAmbient();
+        } else {
+            ambient.pause();
+        }
+    });
+
+    document.addEventListener('pointerdown', () => {
+        if (!userInteracted) {
+            userInteracted = true;
+            if (enabled) {
+                attemptPlayAmbient();
+            }
+        }
+    }, { once: true });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            ambient.pause();
+        } else if (enabled) {
+            attemptPlayAmbient();
+        }
+    });
+
+    if (chime) {
+        const playChime = () => {
+            if (!enabled) return;
+            chime.currentTime = 0;
+            chime.volume = 0.7;
+            chime.play().catch(() => {});
+        };
+        document.querySelectorAll('[data-sound="chime"]').forEach(element => {
+            element.addEventListener('click', playChime);
+        });
+    }
+
+    updateUI();
+    if (enabled) {
+        attemptPlayAmbient();
+    } else {
+        hub.classList.add('audio-hub--muted');
+    }
+}
+
+// ========== Three.js Hologram ========== 
+function initHologram() {
+    if (typeof THREE === 'undefined') return;
+    const canvas = document.getElementById('holo-canvas');
+    if (!canvas) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    const geometry = new THREE.IcosahedronGeometry(1.25, 2);
+    const material = new THREE.MeshPhysicalMaterial({
+        transparent: true,
+        opacity: 0.95,
+        roughness: 0.15,
+        metalness: 0.85,
+        transmission: 0.3,
+        thickness: 1.5,
+        clearcoat: 1,
+        clearcoatRoughness: 0.05
+    });
+    const core = new THREE.Mesh(geometry, material);
+    scene.add(core);
+
+    const wireframe = new THREE.LineSegments(
+        new THREE.EdgesGeometry(geometry),
+        new THREE.LineBasicMaterial({ color: '#ffffff', transparent: true, opacity: 0.35 })
+    );
+    core.add(wireframe);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
+    scene.add(ambientLight);
+    const keyLight = new THREE.PointLight(0xffffff, 1.4, 10);
+    keyLight.position.set(2, 2, 2);
+    scene.add(keyLight);
+    const rimLight = new THREE.PointLight(0xffffff, 1.2, 10);
+    rimLight.position.set(-2, -1, -2);
+    scene.add(rimLight);
+
+    const resizeRenderer = () => {
+        const fallbackWidth = canvas.parentElement ? canvas.parentElement.clientWidth : 400;
+        const fallbackHeight = canvas.parentElement ? canvas.parentElement.clientHeight : 300;
+        const clientWidth = canvas.clientWidth || fallbackWidth;
+        const clientHeight = canvas.clientHeight || fallbackHeight;
+        renderer.setSize(clientWidth, clientHeight, false);
+        camera.aspect = clientWidth / clientHeight;
+        camera.updateProjectionMatrix();
+    };
+
+    resizeRenderer();
+    window.addEventListener('resize', () => {
+        resizeRenderer();
+    });
+
+    let targetX = 0;
+    let targetY = 0;
+    const stage = canvas.closest('.holo-stage');
+    if (stage) {
+        stage.addEventListener('pointermove', (event) => {
+            const rect = stage.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width;
+            const y = (event.clientY - rect.top) / rect.height;
+            targetX = (x - 0.5) * 2;
+            targetY = (y - 0.5) * 2;
+        });
+    }
+
+    const syncColors = () => {
+        const styles = getComputedStyle(document.body);
+        const primary = styles.getPropertyValue('--primary-color').trim() || '#ffffff';
+        const secondary = styles.getPropertyValue('--secondary-color').trim() || '#ffffff';
+        material.color.set(primary);
+        keyLight.color.set(primary);
+        rimLight.color.set(secondary);
+        wireframe.material.color.set(secondary);
+    };
+
+    document.addEventListener('themechange', syncColors);
+    syncColors();
+
+    const clock = new THREE.Clock();
+    const animate = () => {
+        requestAnimationFrame(animate);
+        const delta = clock.getDelta();
+        core.rotation.x += 0.2 * delta;
+        core.rotation.y += 0.35 * delta;
+        core.rotation.z += 0.15 * delta;
+        core.position.x += (targetX * 0.3 - core.position.x) * 0.05;
+        core.position.y += (targetY * 0.3 - core.position.y) * 0.05;
+        renderer.render(scene, camera);
+    };
+
+    animate();
+}
+
+// ========== Story Mode Panels ========== 
+function initStoryMode() {
+    const panels = document.querySelectorAll('.story-panel');
+    if (!panels.length) return;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('active', entry.isIntersecting);
+        });
+    }, { threshold: 0.4 });
+    panels.forEach(panel => observer.observe(panel));
+}
+
 // ========== Initialize Everything ========== 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🚀 Portfolio Website ULTRA Enhanced!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
@@ -1078,6 +1363,12 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%cDeveloped with ❤️ & Magic ✨', 'color: #ec4899; font-size: 16px;');
     console.log('%cTip: Try the Konami Code! ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️BA', 'color: #fbbf24; font-size: 12px;');
     
+    initThemeLab();
+    initSoundscape();
+    initLiveIndicator();
+    initHologram();
+    initStoryMode();
+
     // Add loaded class for CSS transitions
     setTimeout(() => {
         document.body.classList.add('loaded');
