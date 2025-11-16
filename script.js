@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Initialize other features
-    initParticles();
+    // initParticles(); // Disabled - causes mobile scroll issues
     initTyped();
     initGLightbox();
     initDarkMode();
@@ -1486,7 +1486,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%cDeveloped with ❤️ & Magic ✨', 'color: #ec4899; font-size: 16px;');
     
     initThemeLab();
-    initSoundscape();
+    // initSoundscape(); // Disabled - Audio hub removed
     initLiveIndicator();
 
     // Add loaded class for CSS transitions
