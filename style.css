@@ -852,10 +852,12 @@ textarea:focus {
     width: 100%;
     height: 100%;
     z-index: 1;
+    pointer-events: none;
 }
 
 #particles-js canvas {
     display: block;
+    pointer-events: none;
 }
 
 /* ========== Dark Mode Toggle ========== */
@@ -2284,10 +2286,37 @@ body:hover .custom-cursor-dot {
 /* ========== Prevent Horizontal Scroll ========== */
 body {
     overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 * {
     max-width: 100%;
+}
+
+/* Fix for mobile scrolling */
+@media (max-width: 768px) {
+    body, html {
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        position: relative;
+    }
+    
+    #root,
+    #app,
+    .main-container {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
 /* ========== Mobile Theme Lab ========== */

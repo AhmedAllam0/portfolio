@@ -1304,12 +1304,6 @@ function initMobileOptimizations() {
         });
     }
     
-    // Prevent bounce scroll on iOS
-    document.body.addEventListener('touchmove', function(e) {
-        if (e.target.closest('.scrollable')) return;
-        e.preventDefault();
-    }, { passive: false });
-    
     // Optimize viewport meta for better mobile experience
     const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport && isMobile) {
