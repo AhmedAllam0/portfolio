@@ -1860,3 +1860,513 @@ body:hover .custom-cursor-dot {
         display: none;
     }
 }
+
+/* ========================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ======================================== */
+
+/* ========== Mobile Typography ========== */
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 2rem !important;
+        line-height: 1.2;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* ========== Mobile Spacing ========== */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 0 !important;
+    }
+    
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .py-16 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    
+    .mb-16 {
+        margin-bottom: 2rem !important;
+    }
+    
+    .mb-12 {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .gap-8 {
+        gap: 1rem !important;
+    }
+    
+    .gap-6 {
+        gap: 0.75rem !important;
+    }
+}
+
+/* ========== Mobile Hero Section ========== */
+@media (max-width: 768px) {
+    #home {
+        min-height: 85vh !important;
+        padding-top: 80px !important;
+    }
+    
+    #home h1 {
+        font-size: 2.25rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    #home .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    #home .text-xl {
+        font-size: 1.1rem !important;
+    }
+    
+    #home .btn-primary,
+    #home .btn-secondary {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.95rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    #home .flex.gap-4 {
+        flex-direction: column !important;
+        width: 100%;
+    }
+}
+
+/* ========== Mobile Skills Grid ========== */
+@media (max-width: 768px) {
+    #skills .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+    
+    .skill-card {
+        padding: 1rem !important;
+    }
+    
+    .skill-card h3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .skill-card .text-sm {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Certifications on mobile */
+    #skills .grid.md\\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ========== Mobile Portfolio Grid ========== */
+@media (max-width: 768px) {
+    #portfolio .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .portfolio-card {
+        height: 250px !important;
+    }
+    
+    .portfolio-card img {
+        object-fit: cover;
+    }
+}
+
+/* ========== Mobile Blog Section ========== */
+@media (max-width: 768px) {
+    #blog .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    #blog article {
+        margin-bottom: 1rem;
+    }
+    
+    #blog .h-48 {
+        height: 180px !important;
+    }
+}
+
+/* ========== Mobile Services Grid ========== */
+@media (max-width: 768px) {
+    #services .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .service-card {
+        padding: 1.5rem !important;
+    }
+}
+
+/* ========== Mobile Pricing Cards ========== */
+@media (max-width: 768px) {
+    #pricing .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    #pricing .scale-105 {
+        transform: scale(1) !important;
+    }
+    
+    .pricing-card {
+        padding: 1.5rem !important;
+    }
+}
+
+/* ========== Mobile FAQ ========== */
+@media (max-width: 768px) {
+    .faq-item {
+        padding: 1rem !important;
+    }
+    
+    .faq-question span {
+        font-size: 1rem !important;
+    }
+    
+    .faq-question .w-10 {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    
+    .faq-answer {
+        padding-right: 2.5rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ========== Mobile Testimonials ========== */
+@media (max-width: 768px) {
+    #testimonials .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem !important;
+    }
+    
+    .testimonial-stats {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    .testimonial-stats > div {
+        text-align: center !important;
+        width: 100%;
+    }
+}
+
+/* ========== Mobile Contact Form ========== */
+@media (max-width: 768px) {
+    #contact .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    #contact-form input,
+    #contact-form textarea,
+    #contact-form select {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+    }
+    
+    #contact-form button {
+        width: 100%;
+        padding: 1rem !important;
+    }
+}
+
+/* ========== Mobile Timeline ========== */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 1.5rem !important;
+    }
+    
+    .timeline-item {
+        padding-left: 1.5rem !important;
+    }
+    
+    .timeline-item::before {
+        left: -0.5rem !important;
+    }
+    
+    .timeline-content {
+        padding: 1rem !important;
+    }
+}
+
+/* ========== Mobile Stats/Numbers ========== */
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 2rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem !important;
+    }
+    
+    #about .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+}
+
+/* ========== Mobile Navigation Fixes ========== */
+@media (max-width: 768px) {
+    #navbar {
+        padding: 0.75rem 1rem !important;
+    }
+    
+    #mobile-menu {
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    #mobile-menu a {
+        padding: 1rem !important;
+        font-size: 1.1rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .logo {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* ========== Mobile Footer ========== */
+@media (max-width: 768px) {
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    footer {
+        text-align: center;
+    }
+    
+    footer ul {
+        text-align: center;
+    }
+    
+    footer form {
+        flex-direction: column !important;
+    }
+    
+    footer form input {
+        border-radius: 0.5rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    footer form button {
+        width: 100%;
+        border-radius: 0.5rem !important;
+    }
+}
+
+/* ========== Mobile Buttons ========== */
+@media (max-width: 640px) {
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .btn-group {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        width: 100% !important;
+        justify-content: center;
+    }
+}
+
+/* ========== Mobile Cards & Shadows ========== */
+@media (max-width: 768px) {
+    .rounded-3xl {
+        border-radius: 1rem !important;
+    }
+    
+    .rounded-2xl {
+        border-radius: 0.75rem !important;
+    }
+    
+    .shadow-2xl {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .shadow-xl {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    }
+}
+
+/* ========== Mobile Touch Targets ========== */
+@media (max-width: 768px) {
+    /* Ensure all clickable elements are at least 44x44px */
+    button,
+    a,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Increase tap target for icons */
+    .social-link,
+    .icon-button {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+/* ========== Mobile Image Optimization ========== */
+@media (max-width: 768px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .portfolio-card img,
+    .blog-card img,
+    .testimonial-img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+/* ========== Mobile Modals & Overlays ========== */
+@media (max-width: 768px) {
+    .modal,
+    .overlay {
+        padding: 1rem !important;
+    }
+    
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* ========== Prevent Horizontal Scroll ========== */
+body {
+    overflow-x: hidden;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* ========== Mobile Theme Lab ========== */
+@media (max-width: 768px) {
+    .theme-lab {
+        bottom: 80px !important;
+        right: 0.5rem !important;
+        left: 0.5rem !important;
+        width: auto !important;
+    }
+    
+    .theme-lab__content {
+        padding: 1rem !important;
+    }
+    
+    .theme-dots {
+        gap: 0.5rem !important;
+    }
+    
+    .theme-dot {
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
+
+/* ========== iOS Safari Fixes ========== */
+@supports (-webkit-touch-callout: none) {
+    /* Fix for iOS viewport height */
+    #home {
+        min-height: -webkit-fill-available;
+    }
+    
+    /* Prevent zoom on input focus */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
+
+/* ========== Android Chrome Fixes ========== */
+@media screen and (max-width: 768px) {
+    /* Prevent text inflation */
+    body {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}
+
+/* ========== Small Mobile (320-375px) ========== */
+@media (max-width: 375px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    section {
+        padding: 2rem 0 !important;
+    }
+    
+    .section-title {
+        font-size: 1.75rem !important;
+    }
+    
+    #skills .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+}

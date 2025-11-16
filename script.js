@@ -2,12 +2,18 @@
 // Portfolio JavaScript - Interactive Features
 // ========================================
 
+// ========== Mobile Detection ========== 
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const isSmallScreen = window.innerWidth < 768;
+
 // ========== Initialize AOS Animation ========== 
 document.addEventListener('DOMContentLoaded', function() {
+    // Adjust AOS settings for mobile
     AOS.init({
-        duration: 1000,
+        duration: isMobile ? 600 : 1000,
         once: true,
-        offset: 100
+        offset: isMobile ? 50 : 100,
+        disable: window.innerWidth < 480 ? true : false // Disable on very small screens
     });
     
     // Initialize other features
@@ -17,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initDarkMode();
     initFAQ();
     initContactForm();
+    initMobileOptimizations();
 });
 
 // ========== Loading Screen ========== 
@@ -1236,6 +1243,81 @@ function initSoundscape() {
 }
 
 
+
+// ========== Mobile Optimizations ========== 
+function initMobileOptimizations() {
+    if (!isMobile && !isSmallScreen) return;
+    
+    // Reduce particles on mobile
+    if (window.particlesJS && isSmallScreen) {
+        const particlesConfig = {
+            particles: {
+                number: {
+                    value: 30 // Reduced from default
+                }
+            }
+        };
+    }
+    
+    // Disable heavy animations on mobile
+    if (isSmallScreen) {
+        document.body.classList.add('mobile-device');
+        
+        // Disable parallax on mobile
+        const parallaxElements = document.querySelectorAll('.parallax-element');
+        parallaxElements.forEach(el => {
+            el.style.transform = 'none';
+        });
+    }
+    
+    // Improve touch events
+    document.addEventListener('touchstart', function() {}, { passive: true });
+    document.addEventListener('touchmove', function() {}, { passive: true });
+    
+    // Lazy load images on mobile
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // Improve mobile menu performance
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    
+    if (mobileMenu && mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.style.transition = 'transform 0.3s ease-in-out';
+        });
+    }
+    
+    // Prevent bounce scroll on iOS
+    document.body.addEventListener('touchmove', function(e) {
+        if (e.target.closest('.scrollable')) return;
+        e.preventDefault();
+    }, { passive: false });
+    
+    // Optimize viewport meta for better mobile experience
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport && isMobile) {
+        viewport.setAttribute('content', 
+            'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes'
+        );
+    }
+}
 
 // ========== Dark Mode Toggle ========== 
 function initDarkMode() {
