@@ -1233,113 +1233,262 @@ function initSoundscape() {
     }
 }
 
-// ========== Three.js Hologram ========== 
+// ========== Epic Galaxy Particle System ========== 
 function initHologram() {
     if (typeof THREE === 'undefined') return;
-    const canvas = document.getElementById('holo-canvas');
+    const canvas = document.getElementById('galaxy-canvas');
     if (!canvas) return;
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(0, 0, 4);
+    const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 5;
 
-    const geometry = new THREE.IcosahedronGeometry(1.25, 2);
-    const material = new THREE.MeshPhysicalMaterial({
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Create 50K particle galaxy
+    const particleCount = 50000;
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+    
+    const getThemeColor = () => {
+        const styles = getComputedStyle(document.body);
+        const primaryRgb = styles.getPropertyValue('--primary-color-rgb').trim();
+        const secondaryRgb = styles.getPropertyValue('--secondary-color-rgb').trim();
+        const primary = primaryRgb ? primaryRgb.split(',').map(n => parseInt(n) / 255) : [0.39, 0.4, 0.95];
+        const secondary = secondaryRgb ? secondaryRgb.split(',').map(n => parseInt(n) / 255) : [0.54, 0.36, 0.96];
+        return { primary, secondary };
+    };
+
+    let mode = 'galaxy';
+    let autoRotate = true;
+
+    const generateGalaxy = () => {
+        const { primary, secondary } = getThemeColor();
+        for (let i = 0; i < particleCount; i++) {
+            const i3 = i * 3;
+            const radius = Math.random() * 5;
+            const spinAngle = radius * 2;
+            const branchAngle = (i % 3) * Math.PI * 2 / 3;
+            
+            if (mode === 'galaxy') {
+                positions[i3] = Math.cos(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 0.5;
+                positions[i3 + 1] = (Math.random() - 0.5) * 0.3;
+                positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * 0.5;
+            } else if (mode === 'sphere') {
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos((Math.random() * 2) - 1);
+                const r = Math.random() * 3;
+                positions[i3] = r * Math.sin(phi) * Math.cos(theta);
+                positions[i3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+                positions[i3 + 2] = r * Math.cos(phi);
+            } else if (mode === 'helix') {
+                const angle = i * 0.1;
+                const y = (i / particleCount) * 10 - 5;
+                positions[i3] = Math.cos(angle) * 2;
+                positions[i3 + 1] = y;
+                positions[i3 + 2] = Math.sin(angle) * 2;
+            }
+
+            const mixedColor = Math.random() > 0.5 ? primary : secondary;
+            colors[i3] = mixedColor[0];
+            colors[i3 + 1] = mixedColor[1];
+            colors[i3 + 2] = mixedColor[2];
+        }
+    };
+
+    generateGalaxy();
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const material = new THREE.PointsMaterial({
+        size: 0.02,
+        sizeAttenuation: true,
         transparent: true,
-        opacity: 0.95,
-        roughness: 0.15,
-        metalness: 0.85,
-        transmission: 0.3,
-        thickness: 1.5,
-        clearcoat: 1,
-        clearcoatRoughness: 0.05
+        opacity: 0.8,
+        vertexColors: true,
+        blending: THREE.AdditiveBlending
     });
-    const core = new THREE.Mesh(geometry, material);
-    scene.add(core);
 
-    const wireframe = new THREE.LineSegments(
-        new THREE.EdgesGeometry(geometry),
-        new THREE.LineBasicMaterial({ color: '#ffffff', transparent: true, opacity: 0.35 })
-    );
-    core.add(wireframe);
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
-    scene.add(ambientLight);
-    const keyLight = new THREE.PointLight(0xffffff, 1.4, 10);
-    keyLight.position.set(2, 2, 2);
-    scene.add(keyLight);
-    const rimLight = new THREE.PointLight(0xffffff, 1.2, 10);
-    rimLight.position.set(-2, -1, -2);
-    scene.add(rimLight);
+    // Controls
+    document.querySelector('[data-action="rotate"]')?.addEventListener('click', () => {
+        autoRotate = !autoRotate;
+    });
 
+    document.querySelector('[data-action="explode"]')?.addEventListener('click', () => {
+        if (typeof anime !== 'undefined') {
+            anime({
+                targets: particles.scale,
+                x: [1, 3, 1],
+                y: [1, 3, 1],
+                z: [1, 3, 1],
+                duration: 2000,
+                easing: 'easeInOutQuad'
+            });
+        }
+    });
+
+    document.querySelector('[data-action="morph"]')?.addEventListener('click', () => {
+        const modes = ['galaxy', 'sphere', 'helix'];
+        const currentIndex = modes.indexOf(mode);
+        mode = modes[(currentIndex + 1) % modes.length];
+        generateGalaxy();
+        geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.color.needsUpdate = true;
+    });
+
+    // FPS Counter
+    let lastTime = performance.now();
+    let frames = 0;
+    const fpsDisplay = document.getElementById('fps-count');
+    const particleDisplay = document.getElementById('particle-count');
+    if (particleDisplay) particleDisplay.textContent = particleCount.toLocaleString();
+
+    // Resize
     const resizeRenderer = () => {
-        const fallbackWidth = canvas.parentElement ? canvas.parentElement.clientWidth : 400;
-        const fallbackHeight = canvas.parentElement ? canvas.parentElement.clientHeight : 300;
-        const clientWidth = canvas.clientWidth || fallbackWidth;
-        const clientHeight = canvas.clientHeight || fallbackHeight;
-        renderer.setSize(clientWidth, clientHeight, false);
-        camera.aspect = clientWidth / clientHeight;
+        const width = canvas.clientWidth || 800;
+        const height = canvas.clientHeight || 450;
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
         camera.updateProjectionMatrix();
     };
-
     resizeRenderer();
-    window.addEventListener('resize', () => {
-        resizeRenderer();
+    window.addEventListener('resize', resizeRenderer);
+
+    // Theme sync
+    document.addEventListener('themechange', () => {
+        generateGalaxy();
+        geometry.attributes.color.needsUpdate = true;
     });
 
-    let targetX = 0;
-    let targetY = 0;
-    const stage = canvas.closest('.holo-stage');
-    if (stage) {
-        stage.addEventListener('pointermove', (event) => {
-            const rect = stage.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width;
-            const y = (event.clientY - rect.top) / rect.height;
-            targetX = (x - 0.5) * 2;
-            targetY = (y - 0.5) * 2;
-        });
-    }
+    // Mouse interaction
+    let mouseX = 0, mouseY = 0;
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouseY = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    });
 
-    const syncColors = () => {
-        const styles = getComputedStyle(document.body);
-        const primary = styles.getPropertyValue('--primary-color').trim() || '#ffffff';
-        const secondary = styles.getPropertyValue('--secondary-color').trim() || '#ffffff';
-        material.color.set(primary);
-        keyLight.color.set(primary);
-        rimLight.color.set(secondary);
-        wireframe.material.color.set(secondary);
-    };
-
-    document.addEventListener('themechange', syncColors);
-    syncColors();
-
-    const clock = new THREE.Clock();
+    // Animation
     const animate = () => {
         requestAnimationFrame(animate);
-        const delta = clock.getDelta();
-        core.rotation.x += 0.2 * delta;
-        core.rotation.y += 0.35 * delta;
-        core.rotation.z += 0.15 * delta;
-        core.position.x += (targetX * 0.3 - core.position.x) * 0.05;
-        core.position.y += (targetY * 0.3 - core.position.y) * 0.05;
+        
+        if (autoRotate) {
+            particles.rotation.y += 0.001;
+        }
+        
+        particles.rotation.x += mouseY * 0.0005;
+        particles.rotation.y += mouseX * 0.0005;
+
+        frames++;
+        const currentTime = performance.now();
+        if (currentTime >= lastTime + 1000) {
+            if (fpsDisplay) fpsDisplay.textContent = frames;
+            frames = 0;
+            lastTime = currentTime;
+        }
+
         renderer.render(scene, camera);
     };
-
     animate();
 }
 
-// ========== Story Mode Panels ========== 
+// ========== Cinematic Story with GSAP ========== 
 function initStoryMode() {
-    const panels = document.querySelectorAll('.story-panel');
-    if (!panels.length) return;
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            entry.target.classList.toggle('active', entry.isIntersecting);
+    const chapters = document.querySelectorAll('.story-chapter');
+    if (!chapters.length) return;
+
+    // Lenis Smooth Scroll
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({ 
+            duration: 1.2, 
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) 
         });
-    }, { threshold: 0.4 });
-    panels.forEach(panel => observer.observe(panel));
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    }
+
+    // GSAP ScrollTrigger animations
+    if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        chapters.forEach((chapter) => {
+            const number = chapter.querySelector('.story-chapter__number');
+            const titleSpans = chapter.querySelectorAll('.story-chapter__title span');
+            const desc = chapter.querySelector('.story-chapter__desc');
+            const features = chapter.querySelectorAll('.story-feature');
+            const particles = chapter.querySelector('.story-chapter__particles');
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: chapter,
+                    start: 'top center',
+                    end: 'bottom center',
+                    toggleActions: 'play none none reverse',
+                    onEnter: () => chapter.classList.add('active'),
+                    onLeave: () => chapter.classList.remove('active'),
+                    onEnterBack: () => chapter.classList.add('active'),
+                    onLeaveBack: () => chapter.classList.remove('active')
+                }
+            });
+
+            tl.from(number, { scale: 0, opacity: 0, duration: 0.8, ease: 'power3.out' })
+              .from(titleSpans, { y: 100, opacity: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out' }, '-=0.4')
+              .from(desc, { y: 50, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+              .from(features, { scale: 0, opacity: 0, duration: 0.4, stagger: 0.1, ease: 'back.out(1.7)' }, '-=0.3');
+
+            if (particles) {
+                gsap.to(particles, {
+                    scrollTrigger: {
+                        trigger: chapter,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1
+                    },
+                    y: -100,
+                    ease: 'none'
+                });
+            }
+        });
+    } else {
+        // Fallback for IntersectionObserver
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                entry.target.classList.toggle('active', entry.isIntersecting);
+            });
+        }, { threshold: 0.4 });
+        chapters.forEach(chapter => observer.observe(chapter));
+    }
+
+    // Anime.js micro-interactions
+    if (typeof anime !== 'undefined') {
+        document.querySelectorAll('.story-feature').forEach(feature => {
+            feature.addEventListener('mouseenter', () => {
+                anime({
+                    targets: feature,
+                    scale: 1.1,
+                    duration: 300,
+                    easing: 'spring(1, 80, 10, 0)'
+                });
+            });
+            feature.addEventListener('mouseleave', () => {
+                anime({
+                    targets: feature,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'spring(1, 80, 10, 0)'
+                });
+            });
+        });
+    }
 }
 
 // ========== Initialize Everything ========== 
