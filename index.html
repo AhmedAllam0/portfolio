@@ -304,150 +304,219 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="section-title reveal-text">مهاراتي</h2>
+    <section id="skills" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-code mr-2"></i>مجموعة مهارات متكاملة
+                </span>
+                <h2 class="section-title reveal-text text-5xl font-black mb-4">التقنيات التي أتقنها</h2>
                 <div class="section-divider"></div>
-                <p class="text-gray-600 mt-4">التقنيات والأدوات التي أتقنها</p>
+                <p class="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">خبرة عملية واسعة في أحدث التقنيات والأطر البرمجية مع شهادات معترف بها عالمياً</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Frontend Skills -->
-                <div class="skill-category tilt-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3">
-                    <div class="text-center mb-6">
-                        <i class="fas fa-laptop-code text-5xl text-primary mb-3"></i>
-                        <h3 class="text-2xl font-bold">Frontend</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>HTML/CSS</span>
-                                <span class="text-primary font-semibold">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-4xl font-black text-primary mb-2">7+</div>
+                    <div class="text-gray-600 text-sm">سنوات خبرة</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-4xl font-black text-secondary mb-2">25+</div>
+                    <div class="text-gray-600 text-sm">تقنية متقنة</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-4xl font-black text-accent mb-2">12+</div>
+                    <div class="text-gray-600 text-sm">شهادة احترافية</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-4xl font-black text-primary mb-2">200+</div>
+                    <div class="text-gray-600 text-sm">مشروع منجز</div>
+                </div>
+            </div>
+            
+            <!-- Skills Grid with Modern Tech Stack -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+                <!-- Frontend Technologies -->
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-orange-400 to-red-500 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-html5 text-3xl text-white"></i>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>JavaScript</span>
-                                <span class="text-primary font-semibold">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>React.js</span>
-                                <span class="text-primary font-semibold">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>Tailwind CSS</span>
-                                <span class="text-primary font-semibold">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
-                            </div>
+                        <h4 class="font-bold text-gray-800 mb-1">HTML5</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Backend Skills -->
-                <div class="skill-category tilt-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3">
-                    <div class="text-center mb-6">
-                        <i class="fas fa-server text-5xl text-secondary mb-3"></i>
-                        <h3 class="text-2xl font-bold">Backend</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>Node.js</span>
-                                <span class="text-secondary font-semibold">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-secondary" style="width: 88%"></div>
-                            </div>
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-css3-alt text-3xl text-white"></i>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>PHP</span>
-                                <span class="text-secondary font-semibold">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-secondary" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>MySQL</span>
-                                <span class="text-secondary font-semibold">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-secondary" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>MongoDB</span>
-                                <span class="text-secondary font-semibold">82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-secondary" style="width: 82%"></div>
-                            </div>
+                        <h4 class="font-bold text-gray-800 mb-1">CSS3</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Other Skills -->
-                <div class="skill-category tilt-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3">
-                    <div class="text-center mb-6">
-                        <i class="fas fa-tools text-5xl text-accent mb-3"></i>
-                        <h3 class="text-2xl font-bold">أدوات أخرى</h3>
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-js text-3xl text-gray-900"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">JavaScript</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
                     </div>
-                    <div class="space-y-4">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>Git & GitHub</span>
-                                <span class="text-accent font-semibold">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-accent" style="width: 90%"></div>
-                            </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-react text-3xl text-white"></i>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>Figma/Adobe XD</span>
-                                <span class="text-accent font-semibold">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-accent" style="width: 85%"></div>
-                            </div>
+                        <h4 class="font-bold text-gray-800 mb-1">React.js</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>WordPress</span>
-                                <span class="text-accent font-semibold">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-accent" style="width: 88%"></div>
-                            </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-green-400 to-teal-500 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-vuejs text-3xl text-white"></i>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span>SEO</span>
-                                <span class="text-accent font-semibold">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-accent" style="width: 80%"></div>
-                            </div>
+                        <h4 class="font-bold text-gray-800 mb-1">Vue.js</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-purple-400 to-indigo-600 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-bootstrap text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">Bootstrap</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Technologies -->
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-green-500 to-green-700 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-node-js text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">Node.js</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-indigo-400 to-purple-600 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-php text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">PHP</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl group-hover:scale-110 transition">
+                            <i class="fas fa-database text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">MySQL</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="550">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-green-500 to-green-700 rounded-xl group-hover:scale-110 transition">
+                            <i class="fas fa-leaf text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">MongoDB</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-python text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">Python</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer" data-aos="zoom-in" data-aos-delay="650">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl group-hover:scale-110 transition">
+                            <i class="fab fa-github text-3xl text-white"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-1">Git/GitHub</h4>
+                        <div class="flex items-center justify-center gap-1 text-yellow-400 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications Section -->
+            <div class="mt-16" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">الشهادات المهنية</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-certificate text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">AWS Certified Developer</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-award text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">Google Cloud Professional</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-medal text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">Meta Front-End Developer</h4>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-trophy text-red-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 text-sm">Oracle Database Expert</h4>
                     </div>
                 </div>
             </div>
@@ -838,82 +907,169 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-4xl font-bold mb-4">آراء العملاء</h2>
-                <div class="w-20 h-1 bg-white mx-auto mb-4"></div>
-                <p class="text-gray-100">ماذا يقول عملائي عن خدماتي</p>
+    <section id="testimonials" class="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-1/4 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-comments mr-2"></i>شهادات حقيقية من عملاء راضين
+                </span>
+                <h2 class="text-5xl md:text-6xl font-black mb-4">ماذا يقول العملاء</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-4"></div>
+                <p class="text-gray-200 text-lg max-w-2xl mx-auto">آراء حقيقية من عملاء عملت معهم على مشاريع متنوعة حول العالم</p>
+            </div>
+            
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center">
+                    <div class="text-4xl font-black text-yellow-400 mb-2">4.9/5</div>
+                    <div class="text-sm text-gray-300">متوسط التقييم</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-green-400 mb-2">100%</div>
+                    <div class="text-sm text-gray-300">عملاء راضون</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-blue-400 mb-2">150+</div>
+                    <div class="text-sm text-gray-300">مشروع مكتمل</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-purple-400 mb-2">85%</div>
+                    <div class="text-sm text-gray-300">عملاء متكررون</div>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&size=60&background=6366f1&color=fff" 
-                             alt="Client" 
-                             class="w-16 h-16 rounded-full ml-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">أحمد علي</h4>
-                            <p class="text-sm text-gray-600">مدير شركة تقنية</p>
+                <!-- Testimonial 1 - Enhanced -->
+                <div class="group bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <img src="https://ui-avatars.com/api/?name=Ahmed+Ali&size=70&background=gradient&color=fff" 
+                                 alt="Client" 
+                                 class="w-16 h-16 rounded-full ml-4 ring-4 ring-white/30">
+                            <div>
+                                <h4 class="font-bold text-white text-lg">أحمد علي</h4>
+                                <p class="text-sm text-gray-300">مدير تطوير - TechCorp</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fab fa-linkedin text-blue-400 text-xs"></i>
+                                    <span class="text-xs text-gray-400">السعودية</span>
+                                </div>
+                            </div>
                         </div>
+                        <i class="fas fa-quote-right text-4xl text-white/10 group-hover:text-white/20 transition"></i>
                     </div>
-                    <div class="text-yellow-400 mb-3">
+                    <div class="flex items-center gap-1 text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
+                        <span class="text-white text-sm font-bold mr-2">5.0</span>
                     </div>
-                    <p class="text-gray-700 italic">
-                        "عمل احترافي جداً وخدمة ممتازة. تم تسليم المشروع في الوقت المحدد بجودة عالية. أنصح بالتعامل معه بشدة!"
+                    <p class="text-gray-200 leading-relaxed mb-4">
+                        "عملت مع عشرات المطورين، لكن هذا المطور مختلف تماماً. استلم مشروع منصة تعليمية معقدة وسلمها في وقت قياسي بجودة تفوق التوقعات. الكود نظيف والأداء ممتاز."
                     </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-xs text-gray-400"><i class="fas fa-calendar-alt ml-1"></i>مارس 2024</span>
+                        <span class="text-xs text-green-400"><i class="fas fa-check-circle ml-1"></i>تم التحقق</span>
+                    </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Sara+Mohamed&size=60&background=8b5cf6&color=fff" 
-                             alt="Client" 
-                             class="w-16 h-16 rounded-full ml-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">سارة محمد</h4>
-                            <p class="text-sm text-gray-600">صاحبة متجر إلكتروني</p>
+                <!-- Testimonial 2 - Enhanced -->
+                <div class="group bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <img src="https://ui-avatars.com/api/?name=Sara+Mohamed&size=70&background=random&color=fff" 
+                                 alt="Client" 
+                                 class="w-16 h-16 rounded-full ml-4 ring-4 ring-white/30">
+                            <div>
+                                <h4 class="font-bold text-white text-lg">سارة محمد</h4>
+                                <p class="text-sm text-gray-300">مؤسسة - Fashion Hub</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-store text-pink-400 text-xs"></i>
+                                    <span class="text-xs text-gray-400">الإمارات</span>
+                                </div>
+                            </div>
                         </div>
+                        <i class="fas fa-quote-right text-4xl text-white/10 group-hover:text-white/20 transition"></i>
                     </div>
-                    <div class="text-yellow-400 mb-3">
+                    <div class="flex items-center gap-1 text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
+                        <span class="text-white text-sm font-bold mr-2">5.0</span>
                     </div>
-                    <p class="text-gray-700 italic">
-                        "تصميم رائع وسرعة في الأداء. المتجر الإلكتروني الذي صممه لي زاد من مبيعاتي بشكل ملحوظ. شكراً جزيلاً!"
+                    <p class="text-gray-200 leading-relaxed mb-4">
+                        "متجري الإلكتروني أصبح الأفضل في منطقتي! التصميم رائع، سرعة التحميل خيالية، ومبيعاتي زادت 300% في أول شهرين. استثمار يستحق كل ريال."
                     </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-xs text-gray-400"><i class="fas fa-calendar-alt ml-1"></i>فبراير 2024</span>
+                        <span class="text-xs text-green-400"><i class="fas fa-check-circle ml-1"></i>تم التحقق</span>
+                    </div>
                 </div>
                 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <img src="https://ui-avatars.com/api/?name=Khaled+Hassan&size=60&background=ec4899&color=fff" 
-                             alt="Client" 
-                             class="w-16 h-16 rounded-full ml-4">
-                        <div>
-                            <h4 class="font-bold text-gray-800">خالد حسن</h4>
-                            <p class="text-sm text-gray-600">رائد أعمال</p>
+                <!-- Testimonial 3 - Enhanced -->
+                <div class="group bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <img src="https://ui-avatars.com/api/?name=Khaled+Hassan&size=70&background=0088cc&color=fff" 
+                                 alt="Client" 
+                                 class="w-16 h-16 rounded-full ml-4 ring-4 ring-white/30">
+                            <div>
+                                <h4 class="font-bold text-white text-lg">خالد حسن</h4>
+                                <p class="text-sm text-gray-300">CEO - StartupHub</p>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-rocket text-orange-400 text-xs"></i>
+                                    <span class="text-xs text-gray-400">مصر</span>
+                                </div>
+                            </div>
                         </div>
+                        <i class="fas fa-quote-right text-4xl text-white/10 group-hover:text-white/20 transition"></i>
                     </div>
-                    <div class="text-yellow-400 mb-3">
+                    <div class="flex items-center gap-1 text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
+                        <span class="text-white text-sm font-bold mr-2">5.0</span>
                     </div>
-                    <p class="text-gray-700 italic">
-                        "محترف بكل معنى الكلمة. فهم احتياجاتي بدقة وقدم حلولاً مبتكرة. سأتعامل معه في جميع مشاريعي القادمة."
+                    <p class="text-gray-200 leading-relaxed mb-4">
+                        "شريك تقني موثوق. بنى لنا MVP في 3 أسابيع فقط، ثم طوّره معنا حتى وصلنا لـ 50 ألف مستخدم. فهمه العميق للأعمال ساعدنا نحقق أهدافنا."
                     </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <span class="text-xs text-gray-400"><i class="fas fa-calendar-alt ml-1"></i>يناير 2024</span>
+                        <span class="text-xs text-green-400"><i class="fas fa-check-circle ml-1"></i>تم التحقق</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platforms Reviews -->
+            <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
+                <p class="text-gray-300 mb-6">معتمد على منصات العمل الحر العالمية</p>
+                <div class="flex items-center justify-center gap-8 flex-wrap">
+                    <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <span class="font-bold text-white">4.9/5</span>
+                        <span class="text-gray-400 text-sm">Upwork</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <span class="font-bold text-white">5.0/5</span>
+                        <span class="text-gray-400 text-sm">Freelancer</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <span class="font-bold text-white">4.8/5</span>
+                        <span class="text-gray-400 text-sm">Fiverr</span>
+                    </div>
                 </div>
             </div>
         </div>
