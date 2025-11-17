@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Initialize other features
-    // initParticles(); // Disabled - causes mobile scroll issues
     initTyped();
     initGLightbox();
     initDarkMode();
@@ -547,124 +546,15 @@ contactForm.addEventListener('submit', function() {
     trackEvent('Contact', 'form_submit', 'Contact Form');
 });
 
-// ========== Particles.js Configuration ========== 
-function initParticles() {
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: '#ffffff'
-                },
-                shape: {
-                    type: 'circle',
-                    stroke: {
-                        width: 0,
-                        color: '#000000'
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#ffffff',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'repulse'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    }
-}
-
 // ========== Typed.js for Hero Section ========== 
 function initTyped() {
     if (typeof Typed !== 'undefined') {
         const typed = new Typed('#typed', {
             strings: [
-                'مطور ويب',
-                'مصمم واجهات',
-                'مطور Full Stack',
-                'مصمم UI/UX',
-                'مبرمج محترف'
+                'محترف مبدع',
+                'خبير في مجالي',
+                'مقدم خدمات متميزة',
+                'شريك نجاحك'
             ],
             typeSpeed: 100,
             backSpeed: 50,
@@ -1165,99 +1055,9 @@ function initThemeLab() {
     });
 }
 
-// ========== Immersive Soundscape ========== 
-function initSoundscape() {
-    const hub = document.getElementById('audio-hub');
-    const toggle = document.getElementById('audio-toggle');
-    const status = document.getElementById('audio-status');
-    const ambient = document.getElementById('ambient-audio');
-    const chime = document.getElementById('ui-chime');
-    if (!hub || !toggle || !status || !ambient) return;
-
-    const SOUND_STORAGE_KEY = 'soundscapeEnabled';
-    let enabled = localStorage.getItem(SOUND_STORAGE_KEY) === 'true';
-    let userInteracted = false;
-
-    const updateUI = () => {
-        hub.classList.toggle('audio-hub--muted', !enabled);
-        toggle.setAttribute('aria-pressed', enabled);
-        status.textContent = enabled ? 'تتوهج الآن' : 'صامتة';
-    };
-
-    const attemptPlayAmbient = async () => {
-        if (!enabled) return;
-        ambient.volume = 0.6;
-        try {
-            await ambient.play();
-        } catch (err) {
-            console.warn('Ambient audio blocked until user interaction.', err);
-        }
-    };
-
-    toggle.addEventListener('click', () => {
-        enabled = !enabled;
-        localStorage.setItem(SOUND_STORAGE_KEY, enabled);
-        updateUI();
-        if (enabled) {
-            attemptPlayAmbient();
-        } else {
-            ambient.pause();
-        }
-    });
-
-    document.addEventListener('pointerdown', () => {
-        if (!userInteracted) {
-            userInteracted = true;
-            if (enabled) {
-                attemptPlayAmbient();
-            }
-        }
-    }, { once: true });
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            ambient.pause();
-        } else if (enabled) {
-            attemptPlayAmbient();
-        }
-    });
-
-    if (chime) {
-        const playChime = () => {
-            if (!enabled) return;
-            chime.currentTime = 0;
-            chime.volume = 0.7;
-            chime.play().catch(() => {});
-        };
-        document.querySelectorAll('[data-sound="chime"]').forEach(element => {
-            element.addEventListener('click', playChime);
-        });
-    }
-
-    updateUI();
-    if (enabled) {
-        attemptPlayAmbient();
-    } else {
-        hub.classList.add('audio-hub--muted');
-    }
-}
-
-
-
 // ========== Mobile Optimizations ========== 
 function initMobileOptimizations() {
     if (!isMobile && !isSmallScreen) return;
-    
-    // Reduce particles on mobile
-    if (window.particlesJS && isSmallScreen) {
-        const particlesConfig = {
-            particles: {
-                number: {
-                    value: 30 // Reduced from default
-                }
-            }
-        };
-    }
     
     // Disable heavy animations on mobile
     if (isSmallScreen) {
@@ -1476,17 +1276,14 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c  ✓ Advanced Contact Form', 'color: #8b5cf6; font-size: 14px;');
     console.log('%c  ✓ Documentation Page', 'color: #8b5cf6; font-size: 14px;');
     console.log('%c  ✓ Custom 404 Page', 'color: #8b5cf6; font-size: 14px;');
-    console.log('%c  ✓ Particles.js Background', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ Typed.js Animations', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ GLightbox Gallery', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ Reading Progress Bar', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ Theme Lab (5 Palettes)', 'color: #10b981; font-size: 14px;');
-    console.log('%c  ✓ Audio Soundscape', 'color: #10b981; font-size: 14px;');
     console.log('%c  ✓ SEO Optimized', 'color: #8b5cf6; font-size: 14px;');
     console.log('%cDeveloped with ❤️ & Magic ✨', 'color: #ec4899; font-size: 16px;');
     
     initThemeLab();
-    // initSoundscape(); // Disabled - Audio hub removed
     initLiveIndicator();
 
     // Add loaded class for CSS transitions

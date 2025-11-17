@@ -194,8 +194,12 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-secondary to-accent text-white relative overflow-hidden pt-20">
-        <!-- Particles Background -->
-        <div id="particles-js" class="absolute inset-0"></div>
+        <!-- Demo Badge -->
+        <div class="absolute top-28 md:top-24 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-white/15 backdrop-blur-lg text-white px-5 py-2 rounded-full shadow-lg border border-white/20" data-aos="zoom-in">
+            <i class="fas fa-bolt"></i>
+            <span class="text-sm font-semibold">وضع العرض التوضيحي</span>
+            <a href="#pricing" class="text-yellow-300 underline text-sm">اطلب النسخة الكاملة</a>
+        </div>
         
         <!-- Background Animation -->
         <div class="absolute inset-0 overflow-hidden">
@@ -230,7 +234,7 @@
                     مرحباً، أنا <span class="text-yellow-300" id="typed"></span>
                 </h1>
                 <p class="text-xl md:text-2xl mb-8 text-gray-100">
-                    مطور ويب محترف | أبني حلول رقمية متكاملة للشركات والأفراد
+                    محترف مبدع | أقدم خدمات عالية الجودة تحقق أهدافك
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center">
                     <a href="#portfolio" class="btn-primary magnetic-btn bg-white text-primary hover:bg-gray-100" data-sound="chime">
@@ -241,6 +245,10 @@
                         <i class="fas fa-envelope ml-2"></i>
                         تواصل معي
                     </a>
+                    <button id="book-btn" class="btn-accent magnetic-btn bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-xl hover:shadow-lg transition" data-sound="chime">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        احجز استشارة
+                    </button>
                 </div>
                 
                 <!-- Social Links -->
@@ -257,6 +265,14 @@
                     <a href="#" class="social-icon hover:scale-110 transition">
                         <i class="fab fa-instagram"></i>
                     </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm opacity-95">
+                    <span class="px-3 py-2 bg-white/10 rounded-full">مدعوم بـ <strong>Tailwind</strong></span>
+                    <span class="px-3 py-2 bg-white/10 rounded-full">جاهز للعرض التجاري</span>
+                    <span class="px-3 py-2 bg-white/10 rounded-full">RTL & Arabic Ready</span>
+                    <span class="px-3 py-2 bg-white/10 rounded-full">دعم فني 30 يوم</span>
                 </div>
             </div>
         </div>
@@ -283,12 +299,12 @@
                 </div>
                 
                 <div data-aos="fade-left">
-                    <h3 class="text-3xl font-bold mb-4 text-gray-800">خبرة واسعة في تطوير الويب</h3>
+                    <h3 class="text-3xl font-bold mb-4 text-gray-800">محترف شغوف بالتميز والإبداع</h3>
                     <p class="text-gray-600 mb-4 leading-relaxed">
-                        مطور Full Stack بخبرة عملية في بناء مواقع وتطبيقات ويب احترافية. أركز على تقديم حلول تقنية متكاملة تجمع بين الجودة العالية والأداء الممتاز.
+                        أقدم خدمات احترافية عالية الجودة مع التركيز على تحقيق أهداف عملائي وتجاوز توقعاتهم. أعمل بشغف ودقة لضمان رضا كامل عن كل مشروع، مع الالتزام الكامل بالمواعيد المحددة ومعايير الجودة العالمية.
                     </p>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        أستخدم أحدث التقنيات والأدوات لضمان تسليم مشاريع احترافية قابلة للتطوير، مع الالتزام بالمواعيد ومعايير الجودة العالمية.
+                        أؤمن بأهمية التطوير المستمر ومواكبة كل جديد في مجالي. أسعى دائمًا لتقديم حلول مبتكرة تساعد عملائي على تحقيق النجاح والتميز في أعمالهم.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-4 mb-6">
@@ -300,13 +316,13 @@
                         <div class="stat-card">
                             <i class="fas fa-users text-3xl text-secondary mb-2"></i>
                             <h4 class="text-3xl font-bold text-gray-800">100+</h4>
-                            <p class="text-gray-600">عميل سعيد</p>
+                            <p class="text-gray-600">عميل راضٍ</p>
                         </div>
                     </div>
                     
                     <a href="#contact" class="btn-primary bg-gradient-to-r from-primary to-secondary text-white">
-                        <i class="fas fa-download ml-2"></i>
-                        تحميل السيرة الذاتية
+                        <i class="fas fa-phone-alt ml-2"></i>
+                        تواصل معي الآن
                     </a>
                 </div>
             </div>
@@ -326,9 +342,9 @@
                 <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
                     <i class="fas fa-code mr-2"></i>مجموعة مهارات متكاملة
                 </span>
-                <h2 class="section-title reveal-text text-5xl font-black mb-4">التقنيات التي أتقنها</h2>
+                <h2 class="section-title reveal-text text-5xl font-black mb-4">المهارات والخبرات</h2>
                 <div class="section-divider"></div>
-                <p class="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">خبرة عملية واسعة في أحدث التقنيات والأطر البرمجية مع شهادات معترف بها عالمياً</p>
+                <p class="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">مجموعة متنوعة من المهارات المتخصصة والخبرات العملية التي اكتسبتها عبر السنين</p>
             </div>
             
             <!-- Stats Overview -->
@@ -903,9 +919,9 @@
     <section id="services" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="section-title">خدماتي</h2>
+                <h2 class="section-title">الخدمات التي أقدمها</h2>
                 <div class="section-divider"></div>
-                <p class="text-gray-600 mt-4">الخدمات التي أقدمها لعملائي</p>
+                <p class="text-gray-600 mt-4">مجموعة شاملة من الخدمات الاحترافية لتلبية احتياجاتك وتحقيق أهدافك</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1166,6 +1182,54 @@
                 </div>
             </div>
             
+            <!-- Plan Comparison -->
+            <div class="mt-12 bg-white rounded-3xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center">
+                        <thead class="bg-gray-50 text-gray-800">
+                            <tr>
+                                <th class="py-4 px-6 text-left text-sm font-semibold">الميزة</th>
+                                <th class="py-4 px-6 text-sm font-semibold">أساسية</th>
+                                <th class="py-4 px-6 text-sm font-semibold">احترافية</th>
+                                <th class="py-4 px-6 text-sm font-semibold">شركات</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr>
+                                <td class="py-4 px-6 text-left text-gray-700">عدد الصفحات</td>
+                                <td class="py-4 px-6">5</td>
+                                <td class="py-4 px-6">15</td>
+                                <td class="py-4 px-6">غير محدود</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 text-left text-gray-700">تحسين SEO متقدم</td>
+                                <td class="py-4 px-6 text-gray-400">—</td>
+                                <td class="py-4 px-6 text-green-500"><i class="fas fa-check"></i></td>
+                                <td class="py-4 px-6 text-green-500"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 text-left text-gray-700">لوحة تحكم مخصصة</td>
+                                <td class="py-4 px-6 text-gray-400">—</td>
+                                <td class="py-4 px-6 text-green-500"><i class="fas fa-check"></i></td>
+                                <td class="py-4 px-6 text-green-500"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 text-left text-gray-700">تكامل API / تطبيق</td>
+                                <td class="py-4 px-6 text-gray-400">—</td>
+                                <td class="py-4 px-6 text-gray-400">—</td>
+                                <td class="py-4 px-6 text-green-500"><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 text-left text-gray-700">مدة الدعم</td>
+                                <td class="py-4 px-6">شهر واحد</td>
+                                <td class="py-4 px-6">3 أشهر</td>
+                                <td class="py-4 px-6">12 شهر</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
                 <p class="text-gray-600 text-lg mb-4">تحتاج باقة مخصصة؟</p>
                 <a href="#contact" class="text-primary font-bold text-lg hover:underline">
@@ -1344,6 +1408,37 @@
         </div>
     </section>
 
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-20 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">دراسات حالة</span>
+                <h2 class="text-4xl font-black mb-4">دراسات حالة قصيرة</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">نماذج موجزة تبرز المشاكل التي حللناها والنتائج الملموسة للعملاء.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-md" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-2">متجر إلكتروني - زيادة المبيعات</h3>
+                    <p class="text-gray-700 mb-4">أنشأنا متجرًا كاملًا مع تكامل بوابات الدفع وسرعة تحميل محسّنة؛ زيادة المبيعات بنسبة 32% خلال 2 شهور.</p>
+                    <div class="text-sm text-gray-500">التقنيات: React, Stripe, Netlify</div>
+                </div>
+
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-2">بوابة خدمات - تقليل زمن المعالجة</h3>
+                    <p class="text-gray-700 mb-4">إعادة تصميم واجهة المستخدم وتحسين سير العمل أدى لتقليل وقت المعالجة بنسبة 48%.</p>
+                    <div class="text-sm text-gray-500">التقنيات: Vue, Node.js</div>
+                </div>
+
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-2">موقع خدمات شخصية - تحسين الظهور</h3>
+                    <p class="text-gray-700 mb-4">SEO وتقنيات المحتوى أدى لرفع الزيارات العضوية بنسبة 85% في 3 أشهر.</p>
+                    <div class="text-sm text-gray-500">التقنيات: HTML, CSS, SEO</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-white">
         <div class="container mx-auto px-4">
@@ -1440,7 +1535,7 @@
                             <li>إصلاح أي مشاكل تقنية مجاناً (خلال فترة الضمان)</li>
                             <li>تحديثات أمنية دورية</li>
                             <li>استشارات فنية عبر الهاتف والبريد</li>
-                            <li>تدريب على استخدام لوحة التحكم</li>
+                            <li>جلسة تعريفية لشرح كيفية تحديث الملفات</li>
                         </ul>
                         مدة الدعم تختلف حسب الباقة المختارة (1-12 شهر).
                     </div>
@@ -1499,6 +1594,54 @@
                 <a href="#contact" class="btn-primary bg-gradient-to-r from-primary to-secondary text-white inline-flex items-center">
                     <i class="fas fa-comments ml-2"></i>
                     تواصل معنا الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Bundle Section -->
+    <section id="resources" class="py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-4">حزمة التسليم الكاملة</span>
+                <h2 class="text-4xl font-black mb-4">ما الذي تحصل عليه عند الشراء؟</h2>
+                <p class="text-gray-300 max-w-3xl mx-auto">تم إعداد القالب كمنتج متكامل قابل للتخصيص، مع ملفات تصميم ودعم يسهّل على عملائك البدء فورًا.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-6" data-aos="fade-up">
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">كود نظيف</h3>
+                    <p class="text-gray-300 text-sm">HTML/CSS/JS منظم، مع تعليقات وإرشادات.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-pencil-ruler text-secondary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ملفات تصميم</h3>
+                    <p class="text-gray-300 text-sm">روابط Figma/PSD جاهزة للتعديل.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-12 h-12 bg-yellow-200/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-yellow-300 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">دليل استخدام</h3>
+                    <p class="text-gray-300 text-sm">وثائق كاملة + خطوات تفصيلية للتخصيص.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-green-200/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-green-300 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">دعم 30 يوم</h3>
+                    <p class="text-gray-300 text-sm">تخصيص أساسي + ردود على الاستفسارات.</p>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center" data-aos="fade-up" data-aos-delay="250">
+                <a href="#contact" class="inline-flex items-center gap-3 bg-white text-primary font-bold px-8 py-4 rounded-full shadow-lg">
+                    حمّل الحزمة كاملة <i class="fas fa-download"></i>
                 </a>
             </div>
         </div>
@@ -1702,7 +1845,7 @@
                         <li><a href="#portfolio" class="hover:text-primary transition">أعمالي</a></li>
                         <li><a href="#contact" class="hover:text-primary transition">اتصل بي</a></li>
                         <li><a href="documentation.html" class="hover:text-primary transition"><i class="fas fa-book ml-1"></i>دليل الاستخدام</a></li>
-                        <li><a href="admin.html" class="hover:text-primary transition"><i class="fas fa-cog ml-1"></i>لوحة التحكم</a></li>
+                        <li><a href="README.md" class="hover:text-primary transition"><i class="fas fa-file-alt ml-1"></i>مستند المشروع</a></li>
                     </ul>
                 </div>
                 
@@ -1773,32 +1916,40 @@
         </div>
     </div>
 
-    <!-- Audio Hub -->
-    <div class="audio-hub audio-hub--muted" id="audio-hub">
-        <button class="audio-hub__toggle" id="audio-toggle" aria-pressed="false" aria-label="تشغيل أو إيقاف المساحة الصوتية">
-            <span class="audio-ring"></span>
-            <i class="fas fa-waveform"></i>
-        </button>
-        <div class="audio-hub__data">
-            <p class="audio-hub__title">مساحة صوتية حية</p>
-            <p class="audio-hub__status" id="audio-status">صامتة</p>
-        </div>
-        <audio id="ambient-audio" loop preload="auto">
-            <source src="https://cdn.pixabay.com/download/audio/2023/04/04/audio_0b58a54d56.mp3?filename=ethereal-ambience-143039.mp3" type="audio/mp3">
-        </audio>
-        <audio id="ui-chime" preload="auto">
-            <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_06d5ef6e1d.mp3?filename=crystal-notification-110622.mp3" type="audio/mp3">
-        </audio>
-    </div>
-
     <!-- Scroll to Top Button -->
     <button id="scroll-top" class="scroll-top-btn">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
+    <!-- Booking Modal (hidden by default) -->
+    <div id="modal-book" class="modal fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-2xl w-full max-w-2xl p-6 relative">
+            <button class="modal-close absolute top-4 left-4 text-gray-600 bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-200">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-2xl font-bold mb-4">احجز استشارة مجانية</h3>
+            <p class="text-gray-600 mb-4">اختر الوقت المناسب وسنعاود التواصل لتحديد تفاصيل المشروع.</p>
+            <form id="booking-form" class="grid md:grid-cols-2 gap-4">
+                <input type="text" name="name" placeholder="الاسم الكامل" required class="px-4 py-3 border rounded-lg">
+                <input type="email" name="email" placeholder="البريد الإلكتروني" required class="px-4 py-3 border rounded-lg">
+                <input type="tel" name="phone" placeholder="رقم الهاتف" class="px-4 py-3 border rounded-lg">
+                <select name="slot" class="px-4 py-3 border rounded-lg">
+                    <option value="">اختر موعدًا تقريبيًا</option>
+                    <option>غدًا 10:00 ص</option>
+                    <option>غدًا 4:00 م</option>
+                    <option>بعد غد 11:00 ص</option>
+                    <option>بعد غد 3:00 م</option>
+                </select>
+                <textarea name="message" placeholder="ملخص قصير عن المشروع" rows="3" class="px-4 py-3 border rounded-lg md:col-span-2"></textarea>
+                <div class="md:col-span-2 flex justify-end gap-3 mt-2">
+                    <button type="button" class="modal-close px-6 py-3 bg-gray-200 rounded-lg">إلغاء</button>
+                    <button type="submit" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg">إرسال الطلب</button>
+                </div>
+            </form>
+            <div id="booking-success" class="hidden mt-4 p-3 rounded bg-green-50 text-green-700">✅ تم إرسال طلب الحجز. سنراسلُك قريبًا.</div>
+        </div>
+    </div>
+
     <!-- Typed.js -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16"></script>
     
@@ -1809,6 +1960,37 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Custom JavaScript -->
+
+        // Booking modal behavior (lightweight)
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookBtn = document.getElementById('book-btn');
+            const modal = document.getElementById('modal-book');
+            const bookingForm = document.getElementById('booking-form');
+            const success = document.getElementById('booking-success');
+
+            if (bookBtn && modal) {
+                bookBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+            }
+
+            document.addEventListener('click', (e) => {
+                if (e.target && e.target.classList && e.target.classList.contains('modal-close')) {
+                    e.target.closest('.modal').classList.add('hidden');
+                }
+            });
+
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    success.classList.remove('hidden');
+                    setTimeout(() => {
+                        success.classList.add('hidden');
+                        modal.classList.add('hidden');
+                        bookingForm.reset();
+                    }, 2000);
+                });
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

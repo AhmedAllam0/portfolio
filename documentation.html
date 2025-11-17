@@ -120,7 +120,6 @@
 ├── script.js           # ملف JavaScript الرئيسي
 ├── 404.html            # صفحة الخطأ 404
 ├── documentation.html  # صفحة التوثيق (هذه الصفحة)
-├── admin.html          # لوحة التحكم الإدارية
 ├── README.md           # معلومات المشروع
 └── assets/             # مجلد الصور والملفات
     ├── images/         # الصور
@@ -163,9 +162,79 @@
                     دليل التخصيص
                 </h2>
 
+                <!-- Profession Customization -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-briefcase text-blue-600"></i>
+                        تخصيص الموقع لأي مهنة
+                    </h3>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 mb-6">
+                        <p class="text-lg mb-4 font-semibold text-blue-900">
+                            <i class="fas fa-star text-yellow-500 ml-2"></i>
+                            هذا القالب عام وقابل للتخصيص لأي مهنة! ليس مخصصًا للمطورين فقط.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            يمكنك بسهولة تحويله لبورتفوليو: <strong>مصمم جرافيك</strong> 🎨، <strong>مصور فوتوغرافي</strong> 📸، <strong>كاتب محتوى</strong> ✍️، <strong>مسوق رقمي</strong> 📊، <strong>استشاري</strong> 💼، <strong>مهندس معماري</strong> 🏗️، أو <strong>أي مجال آخر</strong>!
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-lg mb-6">
+                        <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-edit text-green-600"></i>
+                            الطريقة السهلة: التعديل مباشرة من الملفات
+                        </h4>
+                        <ol class="list-decimal mr-6 space-y-3 text-gray-700">
+                            <li>افتح ملف <code>index.html</code> في محرر النصوص.</li>
+                            <li>ابحث عن القسم الذي تريد تخصيصه (Hero, About, Skills, Services...)</li>
+                            <li>عدّل النصوص والصور والروابط لتناسب مجالك المهني.</li>
+                            <li>احفظ الملف ثم أعد تحميل الصفحة في المتصفح (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>) لرؤية التعديلات.</li>
+                            <li>لإجراء تغييرات متقدمة على الألوان أو الحركات استخدم <code>style.css</code> و <code>script.js</code>.</li>
+                        </ol>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-pink-50 rounded-lg p-4 border-r-4 border-pink-500">
+                            <h5 class="font-bold text-pink-900 mb-2">مثال: مصور فوتوغرافي 📸</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• المهنة: "مصور فوتوغرافي محترف"</li>
+                                <li>• المهارات: "الكاميرات وتقنيات التصوير"</li>
+                                <li>• الخدمات: "جلسات التصوير المتاحة"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 rounded-lg p-4 border-r-4 border-purple-500">
+                            <h5 class="font-bold text-purple-900 mb-2">مثال: كاتب محتوى ✍️</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• المهنة: "كاتب محتوى إبداعي"</li>
+                                <li>• المهارات: "أساليب ومهارات الكتابة"</li>
+                                <li>• الخدمات: "خدمات الكتابة والتحرير"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 rounded-lg p-4 border-r-4 border-green-500">
+                            <h5 class="font-bold text-green-900 mb-2">مثال: مصمم جرافيك 🎨</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• المهنة: "مصمم جرافيك محترف"</li>
+                                <li>• المهارات: "البرامج والأدوات"</li>
+                                <li>• الخدمات: "خدمات التصميم الجرافيكي"</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-4 border-r-4 border-blue-500">
+                            <h5 class="font-bold text-blue-900 mb-2">مثال: مسوق رقمي 📊</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• المهنة: "مسوق رقمي متخصص"</li>
+                                <li>• المهارات: "أدوات ومنصات التسويق"</li>
+                                <li>• الخدمات: "خدمات التسويق الرقمي"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Colors -->
                 <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4">1. تخصيص الألوان</h3>
+                    <h3 class="text-2xl font-bold mb-4">تخصيص الألوان</h3>
                     <p class="text-gray-600 mb-4">لتغيير الألوان الرئيسية، افتح ملف <code>style.css</code> وابحث عن المتغيرات في بداية الملف:</p>
                     
                     <div class="bg-gray-900 rounded-xl p-6 overflow-x-auto">
@@ -248,6 +317,28 @@
                 </div>
             </section>
 
+            <!-- New Features Docs -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-4">إضافات جديدة: الحجز، دراسات الحالة، واللوحة</h3>
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6">
+                    <h4 class="font-semibold mb-2">مودال الحجز (Booking Modal)</h4>
+                    <p class="text-gray-700 mb-3">تمت إضافة زر "احجز استشارة" في الهيرو يفتح مودال يحتوي نموذجًا بسيطًا لجمع الاسم والبريد والموعد المقترح. المودال يعمل محليًا ويعرض رسالة نجاح مؤقتة. لربط المودال بخدمة حقيقية، استبدل منطق إرسال النموذج داخل `index.html` أو اربطه بـ API في `script.js`.</p>
+
+                    <h4 class="font-semibold mb-2">دراسات الحالة (Case Studies)</h4>
+                    <p class="text-gray-700 mb-3">قسم جديد لعرض دراسات حالة مختصرة — عدل العناوين والوصف داخل `<section id="case-studies">` لإضافة أمثلة مناسبة لعملائك.</p>
+
+                    <h4 class="font-semibold mb-2">شريط الثقة (Trust Badges)</h4>
+                    <p class="text-gray-700 mb-3">شريط ثقات موجز تحت أزرار الهيرو لرفع مستوى الثقة عند الزوار. يمكن تحرير النصوص داخل الهيرو أو استبدالها بأيقونات SVG.</p>
+
+                    <h4 class="font-semibold mb-2">مقارنة الباقات (Pricing Comparison)</h4>
+                    <p class="text-gray-700 mb-3">جدول جديد تحت بطاقات الأسعار يوضح الفروقات بين الباقات. عدل الصفوف داخل قسم Pricing لإضافة ميزات أو تغيير الأسعار بسهولة.</p>
+
+                    <h4 class="font-semibold mb-2">قسم حزمة الموارد (Resource Bundle)</h4>
+                    <p class="text-gray-700 mb-3">قسم قبل التواصل يشرح الملفات والدعم المتضمّن. يساعد العملاء على معرفة قيمة المنتج قبل الشراء.</p>
+
+                </div>
+            </div>
+
             <!-- Sections -->
             <section id="sections" class="mb-16">
                 <h2 class="text-4xl font-black mb-6 flex items-center gap-3">
@@ -261,7 +352,7 @@
                             <i class="fas fa-home text-blue-600 text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Hero Section</h3>
-                        <p class="text-gray-600 text-sm">قسم الترحيب الرئيسي مع تأثير Particles وTyped Animation</p>
+                        <p class="text-gray-600 text-sm">قسم الترحيب الرئيسي مع تأثير Aurora الخفيف وTyped Animation</p>
                     </div>
                     
                     <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">

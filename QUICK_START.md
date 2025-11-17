@@ -152,8 +152,8 @@ if (window.innerWidth > 768) {
 2. عطّل Mouse Trail في CSS
 3. قلل عدد البطاقات المُطبق عليها 3D Tilt
 
-### Particles.js لا تعمل:
-تأكد من وجود `<div id="particles-js">` في Hero Section
+### الخلفية المتدرجة لا تظهر:
+تأكد من وجود عناصر `.hero-aurora` و `.shapes-bg` داخل قسم Hero وعدم تعطيلها في CSS
 
 ### GLightbox لا يعمل:
 تأكد من وجود `data-gallery="portfolio"` على الصور
@@ -191,7 +191,6 @@ if (window.innerWidth > 768) {
 
 ### وثائق المكتبات:
 - [Vanilla Tilt.js](https://micku7zu.github.io/vanilla-tilt.js/)
-- [Particles.js](https://vincentgarreau.com/particles.js/)
 - [Typed.js](https://mattboldt.com/demos/typed-js/)
 - [GLightbox](https://biati-digital.github.io/glightbox/)
 - [AOS](https://michalsnik.github.io/aos/)
