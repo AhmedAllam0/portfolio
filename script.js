@@ -75,9 +75,10 @@ function updateReadingProgress() {
 }
 
 function showProgressCompletionToast() {
-    // Create toast element
+    // Create toast element with dark mode support
+    const isDark = document.documentElement.classList.contains('dark');
     const toast = document.createElement('div');
-    toast.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-full shadow-2xl z-50 flex items-center gap-3 animate-bounce';
+    toast.className = `fixed bottom-24 left-1/2 transform -translate-x-1/2 ${isDark ? 'bg-gradient-to-r from-emerald-600 to-green-700' : 'bg-gradient-to-r from-green-500 to-emerald-600'} text-white px-6 py-4 rounded-full shadow-2xl z-50 flex items-center gap-3 animate-bounce`;
     toast.innerHTML = `
         <i class="fas fa-check-circle text-2xl"></i>
         <div>
@@ -1022,21 +1023,8 @@ function initLiveIndicator() {
 function getArabicGreeting(hour) {
     const isDarkMode = document.documentElement.classList.contains('dark');
     
-    if (isDarkMode) {
-        // Creative statuses when in dark mode (working hours)
-        if (hour < 6) return 'في جلسة مونتاج';
-        if (hour < 12) return 'في جلسة مونتاج';
-        if (hour < 17) return 'في جلسة مونتاج';
-        if (hour < 21) return 'في جلسة مونتاج';
-        return 'في جلسة مونتاج';
-    } else {
-        // Ready status when in light mode
-        if (hour < 6) return 'جاهز لاستشارة';
-        if (hour < 12) return 'جاهز لاستشارة';
-        if (hour < 17) return 'جاهز لاستشارة';
-        if (hour < 21) return 'جاهز لاستشارة';
-        return 'جاهز لاستشارة';
-    }
+    // Simple status based on dark mode
+    return isDarkMode ? 'في جلسة مونتاج' : 'جاهز لاستشارة';
 }
 
 // ========== Theme Lab Palette ========== 
