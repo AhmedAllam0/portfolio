@@ -52,6 +52,8 @@ window.addEventListener('scroll', function() {
 });
 
 // ========== Reading Progress Bar ========== 
+let progressToastShown = false;
+
 function updateReadingProgress() {
     const progressBar = document.getElementById('reading-progress');
     const windowHeight = window.innerHeight;
@@ -62,6 +64,43 @@ function updateReadingProgress() {
     if (progressBar) {
         progressBar.style.width = progress + '%';
     }
+    
+    // Show toast at 100% progress
+    if (progress >= 99 && !progressToastShown) {
+        progressToastShown = true;
+        showProgressCompletionToast();
+    } else if (progress < 99) {
+        progressToastShown = false;
+    }
+}
+
+function showProgressCompletionToast() {
+    // Create toast element with dark mode support
+    const isDark = document.documentElement.classList.contains('dark');
+    const toast = document.createElement('div');
+    toast.className = `fixed bottom-24 left-1/2 transform -translate-x-1/2 ${isDark ? 'bg-gradient-to-r from-emerald-600 to-green-700' : 'bg-gradient-to-r from-green-500 to-emerald-600'} text-white px-6 py-4 rounded-full shadow-2xl z-50 flex items-center gap-3 animate-bounce`;
+    toast.innerHTML = `
+        <i class="fas fa-check-circle text-2xl"></i>
+        <div>
+            <p class="font-bold">أحسنت! أكملت قراءة الصفحة 🎉</p>
+            <p class="text-sm opacity-90">جاهز لبدء مشروعك؟ <a href="#pricing" class="underline font-bold">اطلب باقة الآن</a></p>
+        </div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Animate in
+    setTimeout(() => {
+        toast.style.animation = 'none';
+    }, 2000);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(-50%, 20px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 5000);
 }
 
 // ========== Mobile Menu Toggle ========== 
@@ -551,10 +590,11 @@ function initTyped() {
     if (typeof Typed !== 'undefined') {
         const typed = new Typed('#typed', {
             strings: [
-                'محترف مبدع',
-                'خبير في مجالي',
-                'مقدم خدمات متميزة',
-                'شريك نجاحك'
+                'صانع محتوى مرئي',
+                'منتج فيديوهات قصيرة',
+                'كاتب سكربتات',
+                'خبير نمو قنوات',
+                'مصمم محتوى إبداعي'
             ],
             typeSpeed: 100,
             backSpeed: 50,
@@ -981,11 +1021,10 @@ function initLiveIndicator() {
 }
 
 function getArabicGreeting(hour) {
-    if (hour < 6) return 'ليلة هادئة';
-    if (hour < 12) return 'صباح الإلهام';
-    if (hour < 17) return 'نهار إبداعي';
-    if (hour < 21) return 'مساء متألق';
-    return 'ليلة مبهرة';
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    
+    // Simple status based on dark mode
+    return isDarkMode ? 'في جلسة مونتاج' : 'جاهز لاستشارة';
 }
 
 // ========== Theme Lab Palette ========== 
@@ -1133,6 +1172,13 @@ function initDarkMode() {
             const isDark = document.documentElement.classList.contains('dark');
             localStorage.setItem('darkMode', isDark ? 'dark' : 'light');
             updateDarkModeUI(isDark);
+            
+            // Update live indicator greeting
+            const greetingElement = document.getElementById('live-greeting');
+            if (greetingElement) {
+                const now = new Date();
+                greetingElement.textContent = getArabicGreeting(now.getHours());
+            }
             
             // Add transition effect
             darkModeToggle.classList.add('scale-110');
